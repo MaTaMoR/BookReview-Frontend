@@ -1,0 +1,16 @@
+<h1 mat-dialog-title class="text-center">Búsqueda</h1>
+<mat-tab-group dynamicHeight mat-align-tabs="center" animationDuration="500ms">
+    <mat-tab label="Libro">
+        <div fxLayout="column" fxLayoutAlign="center start" class="mt-3">
+            <app-book-tab fxFlexFill></app-book-tab>
+        </div>
+    </mat-tab>
+    <mat-tab label="Categorias">
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <app-category-selector [categories]="categories" fxFlexFill></app-category-selector>
+        </div>
+    </mat-tab>
+    <mat-tab label="Third">Content 3
+
+    </mat-tab>
+</mat-tab-group>

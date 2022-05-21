@@ -1,0 +1,16 @@
+<div fxLayout="column" fxLayoutAlign="center start" fxFlexFill>
+    <h2>Nombre del libro</h2>
+    <mat-form-field fxFlexFill>
+        <input [formControl]="bookControl" [matAutocomplete]="auto" aria-label="Number" matInput
+               placeholder="Escribe el nombre de una categoría" type="text">
+        <mat-autocomplete  #auto="matAutocomplete" (optionSelected)="selected($event.option.value)">
+            <mat-option *ngIf="isSearching" class="is-loading" [disabled]="true">
+                <mat-spinner diameter="20"></mat-spinner>
+            </mat-option>
+            <mat-option *ngFor="let option of bookFilter | async" [value]="option">
+                {{ option.title }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <button mat-button color="primary" (click)="buscar()" [disabled]="bookControl.invalid">Buscar</button>
+</div>

@@ -1,0 +1,13 @@
+<div *ngIf="isLoading(); else content" fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="50">
+            <app-loading></app-loading>
+        </div>
+    </div>
+</div>
+
+<ng-template #content>
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <app-banner [reviews]="reviews"></app-banner>
+</ng-template>

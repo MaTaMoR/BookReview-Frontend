@@ -1,0 +1,57 @@
+.navbar {
+    background-color: var(--background-color);
+}
+
+.navbar-list {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    display: inline-block;
+    position: relative;
+    margin-right: 50px;
+    font-size: 2rem;
+    cursor: pointer;
+
+    color: black;
+}
+
+.navbar-item > a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+.navbar-item:last-child {
+    margin: 0;
+}
+
+.navbar-item:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    margin: auto;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+}
+
+.navbar-item > a:hover {
+    color: var(--main-color);
+}
+
+.navbar-item:hover:after {
+    width: 100%;
+    background: var(--main-color);
+}
+
+.navbar-icon {
+    transform: scale(2);
+    color: black;
+    cursor: pointer;
+}
+
+.trend-dialog .mat-dialog-container {
+    overflow-y: hidden !important;
+}

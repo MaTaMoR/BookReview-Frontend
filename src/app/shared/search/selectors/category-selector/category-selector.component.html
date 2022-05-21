@@ -1,0 +1,29 @@
+<div fxFlexFill fxLayout="column" fxLayoutAlign="center start">
+    <h2>Categorías</h2>
+    <mat-form-field fxFlexFill>
+        <input [formControl]="categoryControl" [matAutocomplete]="auto" aria-label="Number" matInput
+               placeholder="Escribe el nombre de una categoría" type="text">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="addCategory($event.option.value)">
+            <mat-option *ngIf="isSearching" class="is-loading" [disabled]="true">
+                <mat-spinner diameter="20"></mat-spinner>
+            </mat-option>
+            <mat-option *ngFor="let option of categoryFilter | async" [value]="option">
+                {{option.name}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <!-- CHIPS DE LAS CATEGORIAS -->
+    <mat-form-field appearance="fill" fxFlexFill>
+        <mat-label>Categorías seleccionadas</mat-label>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+            <mat-chip
+                (removed)="removeCategory(category)"
+                *ngFor="let category of categories">
+                {{category.name}}
+                <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </mat-chip>
+        </mat-chip-list>
+    </mat-form-field>
+</div>

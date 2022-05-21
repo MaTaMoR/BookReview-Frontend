@@ -1,0 +1,23 @@
+<mat-toolbar class="navbar">
+    <div fxFlexFill fxLayout="row" fxLayoutAlign="center space-between">
+        <div fxFlex="10" fxFlexFill>
+            <div fxFlexFill fxHide fxLayout="column" fxLayoutAlign="center start" fxShow.lt-md="true">
+                <mat-icon class="navbar-icon ms-2">reorder</mat-icon>
+            </div>
+        </div>
+        <div fxFlex="80">
+            <div fxFlexFill fxHide fxLayout="column" fxLayoutAlign="center center" fxShow.gt-sm="true">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><a routerLink="/">Inicio</a></li>
+                    <li class="navbar-item"><a routerLink="/books">Libros</a></li>
+                    <li class="navbar-item"><a routerLink="/test">Test</a></li>
+                </ul>
+            </div>
+        </div>
+        <div fxFlex="10">
+            <div fxFlexFill fxLayout="column" fxLayoutAlign="center end">
+                <mat-icon (click)="openDialog()" class="navbar-icon me-2">search</mat-icon>
+            </div>
+        </div>
+    </div>
+</mat-toolbar>
