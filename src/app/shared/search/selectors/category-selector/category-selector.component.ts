@@ -1,8 +1,19 @@
 import {Component, Input} from '@angular/core';
 import {FormBuilder, FormControl} from "@angular/forms";
-import {debounceTime, filter, finalize, map, Observable, switchMap, tap} from "rxjs";
+import {
+    debounceTime,
+    delay,
+    distinctUntilChanged,
+    filter,
+    finalize,
+    map,
+    Observable,
+    startWith,
+    switchMap,
+    tap
+} from "rxjs";
 import {CategoryResponse} from "../../../../books/interfaces/interfaces";
-import {CategoriesService} from "../../../../books/service/categories.service";
+import {CategoriesService} from "../../../../books/services/categories.service";
 
 @Component({
     selector: 'app-category-selector',
@@ -13,6 +24,8 @@ export class CategorySelectorComponent {
 
     public categoryControl = new FormControl();
     public categoryFilter: Observable<CategoryResponse[]>;
+    public results = [];
+
     public isSearching: boolean = false;
 
     @Input('categories') categories: CategoryResponse[] = [];

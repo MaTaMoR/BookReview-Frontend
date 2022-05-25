@@ -1,0 +1,22 @@
+.title-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    text-align: justify;
+    margin-top: 10px;
+}
+
+.card-image {
+    margin: 0;
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+}

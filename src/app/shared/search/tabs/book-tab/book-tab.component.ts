@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
-import {BooksService} from "../../../../books/service/books.service";
-import {debounceTime, filter, finalize, map, Observable, switchMap, tap} from "rxjs";
+import {Component, ViewChild} from '@angular/core';
+import {BooksService} from "../../../../books/services/books.service";
+import {map} from "rxjs";
 import {BookResponse} from "../../../../books/interfaces/interfaces";
+import {SingleAutoCompleter} from "../../../utils/utils";
+import {Router} from "@angular/router";
+import {SingleAutoCompleterComponent} from "../../../components/single-auto-completer/single-auto-completer.component";
 
 @Component({
   selector: 'app-book-tab',
@@ -11,40 +13,29 @@ import {BookResponse} from "../../../../books/interfaces/interfaces";
 })
 export class BookTabComponent {
 
-    public bookControl = new FormControl();
-    public bookFilter: Observable<BookResponse[]>;
-    public input: string = "";
-    public isSearching: boolean = false;
+    bookCompleter: SingleAutoCompleter<BookResponse>;
+    @ViewChild('input') singleCompleter!: SingleAutoCompleterComponent<BookResponse>;
 
-    constructor(private bookService: BooksService) {
-        this.bookFilter = this.bookControl.valueChanges.pipe(
-            filter(value => { return value.length > 0}),
-            debounceTime(100),
-            tap(() => {
-                this.isSearching = true;
-            }),
-            debounceTime(200),
-            switchMap(value => {
-                return this.searchBook(value).pipe(
-                    finalize(() => this.isSearching = false)
-                )
-            })
-        );
+    constructor(private bookService: BooksService, private router: Router) {
+        this.bookCompleter = new SingleAutoCompleter<BookResponse>((key) => {
+            return this.bookService.byTitle(key).pipe(
+                map(resp => {
+                    return resp.content;
+                })
+            )
+        }, (key) => {
+            return key.title;
+        });
+
+        this.bookCompleter.listenChanges((result => {
+            router.navigate(['/book', result.id]);
+        }));
     }
 
     buscar(): void {
-        //El concepto es el siguiente: si clicas en opción vas directamente al detalle, si no vas al listado de libros de respuesta del filtro
-    }
+        const input = this.singleCompleter.input;
+        const request = this.bookService.titleRequest(input);
 
-    selected(book: BookResponse): void {
-        //Redirigir el usuario a la página del libro
-    }
-
-    searchBook(value: string): Observable<BookResponse[]> {
-        return this.bookService.byTitle(value).pipe(
-            map(resp => {
-                return resp.content;
-            })
-        )
+        this.router.navigate(['/books'], { queryParams: { request: btoa(JSON.stringify(request)) } });
     }
 }

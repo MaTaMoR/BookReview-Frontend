@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {ReviewsService} from "../../service/reviews.service";
+import {ReviewsService} from "../../services/reviews.service";
 import {ReviewResponse} from "../../interfaces/interfaces";
 import {delay} from "rxjs";
 
 @Component({
     selector: 'app-main',
     templateUrl: './main.component.html',
-    styleUrls: []
+    styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
 
@@ -22,7 +22,7 @@ export class MainComponent implements OnInit {
 
     ngOnInit(): void {
         this.reviewsService.mainPage().pipe(
-            delay(30000)
+            delay(100000)
         ).subscribe(resp => {
             this._reviews = resp.content;
         })

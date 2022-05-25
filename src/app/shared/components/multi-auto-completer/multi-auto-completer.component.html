@@ -1,0 +1,30 @@
+<ng-template [ngIf]="completer">
+    <div fxLayout="column" fxLayoutAlign="center start">
+        <mat-form-field fxFlexFill>
+            <input fxFlexFill matInput [formControl]="formControl" [matAutocomplete]="inputCompleter" aria-label="Number" [placeholder]="'Introduce el ' + title">
+        </mat-form-field>
+
+        <mat-autocomplete #inputCompleter="matAutocomplete" (optionSelected)="completer.selectValue($event.option.value)">
+            <mat-option *ngIf="completer.isLoading" class="is-loading" [disabled]="true">
+                <mat-spinner diameter="20"></mat-spinner>
+            </mat-option>
+            <mat-option *ngFor="let value of completer.results" [value]="value">
+                {{completer.toString(value)}}
+            </mat-option>
+        </mat-autocomplete>
+
+        <mat-form-field appearance="fill" fxFlexFill>
+            <mat-label>Categorías seleccionadas</mat-label>
+            <mat-chip-list aria-label="Fruit selection">
+                <mat-chip
+                    (removed)="completer.removeValue(value)"
+                    *ngFor="let value of completer.selectedValues">
+                    {{completer.toString(value)}}
+                    <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-chip>
+            </mat-chip-list>
+        </mat-form-field>
+    </div>
+</ng-template>

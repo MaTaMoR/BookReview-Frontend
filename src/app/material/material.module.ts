@@ -17,6 +17,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatChipsModule} from "@angular/material/chips";
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
     exports: [
@@ -36,7 +40,11 @@ import {MatTabsModule} from "@angular/material/tabs";
         MatToolbarModule,
         MatProgressBarModule,
         MatChipsModule,
-        MatTabsModule
+        MatTabsModule,
+        MatExpansionModule,
+        MatMenuModule,
+        MatSlideToggleModule,
+        MatPaginatorModule
     ]
 })
 export class MaterialModule {

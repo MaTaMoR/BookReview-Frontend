@@ -1,0 +1,23 @@
+<ng-template [ngIf]="pageResponse">
+    <mat-paginator [length]="totalElements()"
+                   [pageIndex]="currentPage()"
+                   [pageSize]="pageSize()"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="resize($event)"
+                   aria-label="Select page">
+    </mat-paginator>
+    <div class="content p-3 review-container">
+        <div fxLayout="row wrap" fxLayoutGap="16px grid" fxLayoutAlign="center center">
+            <div fxFlex.xl="20%" fxFlex.lg="25%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xs="100%"  *ngFor="let review of pageResponse.content">
+                <app-review-entry [review]="review"></app-review-entry>
+            </div>
+        </div>
+    </div>
+    <mat-paginator [length]="totalElements()"
+                   [pageIndex]="currentPage()"
+                   [pageSize]="pageSize()"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="resize($event)"
+                   aria-label="Select page">
+    </mat-paginator>
+</ng-template>

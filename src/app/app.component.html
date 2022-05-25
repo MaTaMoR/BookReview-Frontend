@@ -1,3 +1,27 @@
-<div class="h-100 w-100">
-    <router-outlet></router-outlet>
+<div *ngIf="loading; else content" class="h-100">
+    <app-loading></app-loading>
 </div>
+
+<ng-template #content>
+    <app-navbar></app-navbar>
+    <div fxLayout="column">
+        <mat-drawer-container class="mt-auto" hasBackdrop="true" autosize="false" fxFlexFill >
+            <mat-drawer #drawer mode="over" position="end" autoFocus="false">
+                <app-sidenav></app-sidenav>
+            </mat-drawer>
+            <mat-drawer-content class="background-color">
+                <div fxLayout="column" fxLayoutGap="30px" >
+                    <div fxFlex="15" fxLayout="row" fxLayoutAlign="center center">
+                        <app-banner></app-banner>
+                    </div>
+
+                    <div fxFlexFill fxLayout="row" fxLayoutAlign="center center" style="min-height: 1500px">
+                        <div fxFlexFill fxFlex="90" fxLayout="column" class="background-color-contrast">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+                </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
+    </div>
+</ng-template>

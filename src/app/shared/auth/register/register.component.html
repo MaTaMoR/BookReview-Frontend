@@ -1,0 +1,45 @@
+<form class="mt-3" fxLayout="column" fxLayoutAlign="center center" [formGroup]="formGroup" fxLayoutGap="10px">
+    <mat-form-field appearance="standard" fxFlexFill>
+        <mat-label>Nombre de usuario</mat-label>
+        <input matInput type="text" formControlName="username" name="username" autocomplete="off" class="text-align-center">
+        <mat-hint *ngIf="hasError('username')">
+            <p class="form-error">{{ getError('username') }}</p>
+        </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="standard" fxFlexFill>
+        <mat-label>Correo electronico</mat-label>
+        <input matInput type="email" formControlName="email" name="email" autocomplete="off" class="text-align-center">
+        <mat-hint *ngIf="hasError('email')">
+            <p class="form-error">{{ getError('email') }}</p>
+        </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="standard" fxFlexFill>
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="name" name="name" autocomplete="off" class="text-align-center">
+        <mat-hint *ngIf="hasError('name')">
+            <p class="form-error">{{ getError('name') }}</p>
+        </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="standard" fxFlexFill>
+        <mat-label>Apellidos</mat-label>
+        <input matInput type="text" formControlName="surnames" name="surnames" autocomplete="off" class="text-align-center">
+        <mat-hint *ngIf="hasError('surnames')">
+            <p class="form-error">{{ getError('surnames') }}</p>
+        </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="standard" fxFlexFill>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" name="password" autocomplete="off" class="text-align-center">
+        <mat-hint *ngIf="hasError('password')">
+            <p class="form-error">{{ getError('password') }}</p>
+        </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="standard" fxFlexFill>
+        <mat-label>Confirmar contraseña</mat-label>
+        <input matInput type="password" formControlName="confirmPassword" name="confirmPassword" autocomplete="off" class="text-align-center">
+        <mat-hint *ngIf="hasError('confirmPassword')">
+            <p class="form-error">{{ getError('confirmPassword') }}</p>
+        </mat-hint>
+    </mat-form-field>
+    <button mat-button class="mt-3" type="submit" (click)="register()" [disabled]="loading">Registrarme</button>
+</form>

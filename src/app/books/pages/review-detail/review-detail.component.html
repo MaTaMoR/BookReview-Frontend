@@ -1,0 +1,39 @@
+<ng-template [ngIf]="review">
+    <div fxLayout="column" fxLayoutAlign="center center" class="background-color-contrast p-2 review-border unselectable">
+        <mat-card fxLayout="column" fxLayoutAlign="center center" class="p-5 background-secondary" fxLayoutGap="20px">
+            <span class="review-title pb-3">{{ review.book.title }}</span>
+            <img [src]="review.image.id | image" class="detail-image" alt="img">
+            <div fxLayout="row" fxLayoutAlign="center space-between" fxLayoutGap="10px" class="w-100 p-3 background-color-contrast border-with-color">
+                <div  fxFlex="50" fxLayout="column" fxLayoutAlign="center start">
+                    <ul class="content-list">
+                        <li>
+                            <p class="list-item" [routerLink]="['/book', review.book.id]">Libro: <span class="list-item-bold">{{ review.book.title }}</span></p>
+                        </li>
+                        <li>
+                            <p class="list-item" [routerLink]="['review/', review.autor.id]">Autor: <span class="list-item-bold">{{ review.book.autor.name + ' ' + review.book.autor.surnames }}</span></p>
+                        </li>
+                    </ul>
+                </div>
+                <div fxFlex="50" fxLayout="column" fxLayoutAlign="center end">
+                    <ul class="content-list">
+                        <li>
+                            <p class="list-item">Fecha de publicación: <span class="list-item-bold">{{ review.reviewDate | date:'shortDate' }}</span></p>
+                        </li>
+                        <li>
+                            <p class="list-item">Puntuación:
+                                <span class="list-item-bold">
+                                    <ngb-rating class="rating-color" [max]="5" [(rate)]="review.score" [readonly]="true"></ngb-rating>
+                                </span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div fxLayout="row" class="w-100 p-3 background-color-contrast border-with-color">
+                <mat-card-content >
+                    <p class="review-content">{{ review.review }}</p>
+                </mat-card-content>
+            </div>
+        </mat-card>
+    </div>
+</ng-template>

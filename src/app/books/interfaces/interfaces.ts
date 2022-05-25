@@ -48,15 +48,17 @@ export interface AutorRequest {
     id?: string;
     name?: string;
     surnames?: string;
+    fullName?: string;
 
     nameCriteria?: FilterCriteria;
     surnamesCriteria?: FilterCriteria;
+    fullNameCriteria?: FilterCriteria;
 
 }
 
 export interface EditorialRequest {
 
-    id?: String;
+    id?: string;
     name?: string;
 
     nameCriteria?: FilterCriteria;
@@ -88,7 +90,7 @@ export interface UserRequest {
 export interface ReviewRequest {
 
     id?: string;
-    user?: UserRequest;
+    autor?: UserRequest;
     book?: BookRequest;
     title?: string;
     review?: string;
@@ -137,14 +139,23 @@ export interface BookResponse {
 
     id: string;
     title: string;
+    description: string;
     bookType: string;
     publishedDate: Date;
     totalPages: number;
-    image: string;
+    image: ImageResponse;
 
-    autor: AutorRequest;
-    editorial: EditorialRequest;
-    categories: CategoryRequest[];
+    autor: AutorResponse;
+    editorial: EditorialResponse;
+    categories: CategoryResponse[];
+
+}
+
+export interface ImageResponse {
+
+    id: string;
+    name: string;
+    type: string;
 
 }
 
@@ -176,17 +187,17 @@ export interface UserResponse {
     username: string;
     name: string;
     surnames: string;
+    image: ImageResponse;
 
 }
 
 export interface ReviewResponse {
 
     id: string;
-    user: UserRequest;
-    book: BookRequest;
-    title: string;
+    autor: UserResponse;
+    book: BookResponse;
     review: string;
-    image: string;
+    image: ImageResponse;
     score: number;
     reviewDate: Date;
 

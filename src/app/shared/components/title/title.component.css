@@ -1,0 +1,14 @@
+.page-font {
+    font-family: 'title-font', serif;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.page-font-2 {
+    font-family: 'Garnet Capitals', Arial, serif;
+    font-size: 1.75rem;
+}
+
+.title-container {
+    cursor: pointer;
+}

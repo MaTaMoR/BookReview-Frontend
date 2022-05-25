@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {AuthService} from 'src/app/auth/services/auth.service';
+import {AuthService} from 'src/app/shared/services/auth.service';
 import {MatDialog} from "@angular/material/dialog";
+import {SidenavService} from "../services/sidenav.service";
 import {SearchComponent} from "../search/search.component";
 
 @Component({
@@ -10,26 +11,21 @@ import {SearchComponent} from "../search/search.component";
 })
 export class NavbarComponent {
 
-    constructor(private authService: AuthService, private dialog: MatDialog) {
-    }
-
-    busqueda(): void {
+    constructor(private authService: AuthService, private dialog: MatDialog, private sidenavService: SidenavService) {
 
     }
 
-    openDialog(): void {
-        const dialogRef = this.dialog.open(SearchComponent, {
-            autoFocus: false,
+    toggleSidenav() {
+        this.sidenavService.toggle();
+    }
+
+    openSearch(): void {
+        this.dialog.closeAll();
+        this.dialog.open(SearchComponent, {
+            autoFocus: true,
             width: '800px',
             height: 'auto',
-            panelClass: 'trend-dialog',
-            hasBackdrop: false,
-            data: {search: "", categories: []}
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed');
-            console.log(result);
+            panelClass: 'trend-dialog'
         });
     }
 }

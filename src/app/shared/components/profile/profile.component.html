@@ -1,0 +1,20 @@
+<mat-card class="profile-container unselectable">
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <img class="profile-image" [src]="(isLogged() && getProfile().image) ? (getProfile().image.id | image) : 'assets/unknown_user.jpg'" alt="">
+            <span *ngIf="isLogged()"> {{ getProfile().username }}</span>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <ul class="profile-actions">
+                <ng-template [ngIf]="isLogged()">
+                    <li>Mi perfil</li>
+                    <li (click)="logout()">Cerrar sesión</li>
+                </ng-template>
+                <ng-template [ngIf]="!isLogged()">
+                    <li (click)="openAuth('login')">Iniciar sesión</li>
+                    <li (click)="openAuth('register')">Registrarse</li>
+                </ng-template>
+            </ul>
+        </div>
+    </div>
+</mat-card>

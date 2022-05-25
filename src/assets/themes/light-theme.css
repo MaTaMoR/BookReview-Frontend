@@ -1,0 +1,13 @@
+body {
+    --primary-color: #e41613;
+    --secondary-color: white;
+    --background-color: white;
+    --background-color-contrast: whitesmoke;
+    --text-color-primary: black;
+    --text-color-secondary: black;
+    --text-color-on-primary: white;
+    --text-color-on-secondary: white;
+    --text-color-on-contrast: black;
+    --text-color-shadow: gray;
+    --border-color: black;
+}

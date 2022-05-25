@@ -1,0 +1,30 @@
+.profile-image {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.profile-container {
+    height: 100%;
+    cursor: pointer;
+}
+
+.profile-username {
+    margin: 10px;
+}
+
+.menu-item {
+    /* color: var(--text-color); */
+    font-size: 1rem;
+    font-weight: bold;
+    /* border: 3px solid var(--background-color); */
+    /* background-color: var(--background-color); */
+}
+
+.menu-icon {
+    transform: scale(1.5);
+    /* color: var(--text-color); */
+    cursor: pointer;
+}
+

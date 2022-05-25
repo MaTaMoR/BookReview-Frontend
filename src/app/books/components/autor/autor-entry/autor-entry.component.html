@@ -1,0 +1,12 @@
+<ng-template [ngIf]="autor">
+    <mat-card class="my-1 unselectable background-secondary" (click)="onClick()">
+        <div fxLayout="column" fxLayoutAlign="center start" fxFlexFill>
+            <mat-card-header fxFlexFill fxLayout="row" fxLayoutAlign="center center">
+                <mat-card-title>{{ autor.name + ' ' + autor.surnames }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-actions fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+                <button mat-button>VER LIBROS DE AUTOR</button>
+            </mat-card-actions>
+        </div>
+    </mat-card>
+</ng-template>
