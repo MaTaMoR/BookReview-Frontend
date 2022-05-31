@@ -1,34 +1,42 @@
 <ng-template [ngIf]="book">
-    <div fxLayout="column" fxLayoutAlign="center center" class="background-color-contrast p-2 book-border unselectable">
-        <mat-card fxLayout="column" fxLayoutAlign="center center" class="p-5 background-secondary" fxLayoutGap="20px">
-            <span class="book-title pb-3">{{ book.title }}</span>
-            <img [src]="book.image.id | image" class="detail-image" alt="img">
-            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" class="w-100 p-3 background-color-contrast border-with-color">
-                <div fxLayout="column" fxLayoutAlign="center start">
-                    <ul class="content-list">
-                        <li>
-                            <p class="list-item">Libro: <span class="list-item-bold">{{ book.title }}</span></p>
-                        </li>
-                        <li>
-                            <p class="list-item" (click)="searchAutor()">Autor: <span class="list-item-bold">{{ book.autor.name + ' ' + book.autor.surnames }}</span></p>
-                        </li>
-                        <li>
-                            <p class="list-item">Fecha de publicación: <span class="list-item-bold">{{ book.publishedDate | date:'shortDate' }}</span></p>
-                        </li>
-                        <li>
-                            <p class="list-item">Categorías:</p>
-                            <mat-chip-list aria-label="Fish selection">
-                                <mat-chip class="list-item-bold" (click)="searchCategory(category)" *ngFor="let category of book.categories">{{ category.name }}</mat-chip>
-                            </mat-chip-list>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div fxLayout="row" class="w-100 p-3 background-color-contrast border-with-color">
-                <mat-card-content >
-                    <p class="book-content">{{ book.description }}</p>
-                </mat-card-content>
-            </div>
-        </mat-card>
-    </div>
+  <div class="background-color-contrast p-2 book-border unselectable" fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="p-5 background-secondary" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <span class="book-title pb-3">{{ book.title }}</span>
+      <img [src]="book.image.id | image" alt="img" class="detail-image">
+      <div class="w-100 p-3 background-color-contrast border-with-color" fxLayout="row" fxLayoutAlign="start center"
+           fxLayoutGap="10px">
+        <div fxLayout="column" fxLayoutAlign="center start">
+          <ul class="content-list">
+            <li>
+              <p class="list-item">Libro: <span class="list-item-bold">{{ book.title }}</span></p>
+            </li>
+            <li>
+              <p (click)="searchAutor()" class="list-item">Autor: <span
+                class="list-item-bold">{{ book.autor.name + ' ' + book.autor.surnames }}</span></p>
+            </li>
+            <li>
+              <p (click)="searchEditorial()" class="list-item">Editorial: <span
+                class="list-item-bold">{{ book.editorial.name }}</span></p>
+            </li>
+            <li>
+              <p class="list-item">Fecha de publicación: <span
+                class="list-item-bold">{{ book.publishedDate | date:'shortDate' }}</span></p>
+            </li>
+            <li>
+              <p class="list-item">Categorías:</p>
+              <mat-chip-list aria-label="Fish selection">
+                <mat-chip (click)="searchCategory(category)" *ngFor="let category of book.categories"
+                          class="list-item-bold">{{ category.name }}</mat-chip>
+              </mat-chip-list>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="w-100 p-3 background-color-contrast border-with-color" fxLayout="row">
+        <mat-card-content>
+          <p class="book-content">{{ book.description }}</p>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
 </ng-template>

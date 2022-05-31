@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {AutorResponse, BookResponse} from "../../../interfaces/interfaces";
+import {Component, Input} from '@angular/core';
+import {Autor} from "../../../../shared/data/interfaces/interfaces";
 
 @Component({
   selector: 'app-autor-entry',
@@ -8,9 +8,9 @@ import {AutorResponse, BookResponse} from "../../../interfaces/interfaces";
 })
 export class AutorEntryComponent {
 
-    @Input('autor') autor!: AutorResponse;
+  @Input('autor') autor!: Autor;
 
-    onClick(): void {
+  onClick(): void {
 
-    }
+  }
 }

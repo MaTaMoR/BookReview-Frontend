@@ -6,35 +6,48 @@ import {ReviewDetailComponent} from "./pages/review-detail/review-detail.compone
 import {BooksComponent} from "./pages/books/books.component";
 import {ReviewsComponent} from "./pages/reviews/reviews.component";
 import {AutorsComponent} from "./pages/autors/autors.component";
+import {EditorialsComponent} from "./pages/editorials/editorials.component";
+import {CategoriesComponent} from "./pages/categories/categories.component";
+import {HomeComponent} from "./pages/home/home.component";
 
 const routes: Routes = [
-    {
-        path: '', component: MainComponent
-    },
-    {
+  {
+    path: '', component: MainComponent,
+    children: [
+      {
+        path: '', component: HomeComponent
+      },
+      {
         path: 'books', component: BooksComponent
-    },
-    {
+      },
+      {
         path: 'reviews', component: ReviewsComponent
-    },
-    {
+      },
+      {
         path: 'autors', component: AutorsComponent
-    },
-    {
+      },
+      {
+        path: 'editorials', component: EditorialsComponent
+      },
+      {
+        path: 'categories', component: CategoriesComponent
+      },
+      {
         path: 'book/:id', component: BookDetailComponent
-    },
-    {
+      },
+      {
         path: 'review/:id', component: ReviewDetailComponent
-    },
-    {
+      },
+      {
         path: '**', redirectTo: ''
-    },
-
+      },
+    ]
+  }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class BooksRoutingModule {
 }

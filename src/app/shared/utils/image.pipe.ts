@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 import {environment} from "../../../environments/environment";
 
 @Pipe({
@@ -6,9 +6,9 @@ import {environment} from "../../../environments/environment";
 })
 export class ImagePipe implements PipeTransform {
 
-    private baseUrl: string = environment.baseUrl + "/image/get/";
+  private baseUrl: string = environment.baseUrl + "/image/get/";
 
-    transform(value: string, ...args: unknown[]): string {
-      return this.baseUrl + value;
-    }
+  transform(value: string, ...args: unknown[]): string {
+    return this.baseUrl + value;
+  }
 }

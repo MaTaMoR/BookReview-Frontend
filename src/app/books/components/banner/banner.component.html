@@ -1,0 +1,10 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+  <div class="p-5" fxFlex="50" fxFlexAlign="center center" fxLayout="row" routerLink="/">
+    <ng-template [ngIf]="isDarkTheme()">
+      <img [src]="'../../../../assets/logo-' + size + '-dark.png'" alt="logo" style="height: 100%; width: 100%">
+    </ng-template>
+    <ng-template [ngIf]="!isDarkTheme()">
+      <img [src]="'../../../../assets/logo-' + size + '.png'" alt="logo" style="height: 100%; width: 100%">
+    </ng-template>
+  </div>
+</div>

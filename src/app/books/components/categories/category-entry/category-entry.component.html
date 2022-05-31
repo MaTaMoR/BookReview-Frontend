@@ -1,0 +1,12 @@
+<ng-template [ngIf]="category">
+  <mat-card (click)="onClick()" class="my-1 unselectable background-secondary">
+    <div fxFlexFill fxLayout="column" fxLayoutAlign="center start">
+      <mat-card-header fxFlexFill fxLayout="row" fxLayoutAlign="center center">
+        <mat-card-title class="title-clamp">{{ category.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-actions fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+        <button mat-button>VER LIBROS DE CATEGORIA</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</ng-template>

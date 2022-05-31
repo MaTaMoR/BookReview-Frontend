@@ -1,23 +1,24 @@
 <ng-template [ngIf]="pageResponse">
-    <mat-paginator [length]="totalElements()"
-                   [pageIndex]="currentPage()"
-                   [pageSize]="pageSize()"
-                   [pageSizeOptions]="pageSizeOptions"
-                   (page)="resize($event)"
-                   aria-label="Select page">
-    </mat-paginator>
-    <div class="content p-3 book-container">
-        <div fxLayout="row wrap" fxLayoutGap="16px grid" fxLayoutAlign="center center">
-            <div fxFlex.xl="20%" fxFlex.lg="25%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xs="100%"  *ngFor="let book of pageResponse.content">
-                <app-book-entry [book]="book" (click)="onClick(book)"></app-book-entry>
-            </div>
-        </div>
+  <mat-paginator (page)="resize($event)"
+                 [length]="totalElements()"
+                 [pageIndex]="currentPage()"
+                 [pageSizeOptions]="pageSizeOptions"
+                 [pageSize]="pageSize()"
+                 aria-label="Select page">
+  </mat-paginator>
+  <div class="content p-3 book-container">
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="16px grid">
+      <div *ngFor="let book of pageResponse.content" fxFlex.lg="25%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xl="20%"
+           fxFlex.xs="100%">
+        <app-book-entry (click)="onClick(book)" [book]="book"></app-book-entry>
+      </div>
     </div>
-    <mat-paginator [length]="totalElements()"
-                   [pageIndex]="currentPage()"
-                   [pageSize]="pageSize()"
-                   [pageSizeOptions]="pageSizeOptions"
-                   (page)="resize($event)"
-                   aria-label="Select page">
-    </mat-paginator>
+  </div>
+  <mat-paginator (page)="resize($event)"
+                 [length]="totalElements()"
+                 [pageIndex]="currentPage()"
+                 [pageSizeOptions]="pageSizeOptions"
+                 [pageSize]="pageSize()"
+                 aria-label="Select page">
+  </mat-paginator>
 </ng-template>

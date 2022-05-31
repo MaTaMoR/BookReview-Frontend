@@ -1,0 +1,46 @@
+<div [matMenuTriggerFor]="profileMenu" class="profile-container h-100 unselectable" fxLayout="row"
+     fxLayoutAlign="center center">
+  <ng-template [ngIf]="isLogged()">
+    <p class="profile-username">{{ getProfile().username }}</p>
+  </ng-template>
+  <div class="h-100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <img [src]="(isLogged() && getProfile().image) ? (getProfile().image.id | image) : 'assets/unknown_user.jpg'"
+           alt="profile"
+           class="profile-image">
+    </div>
+  </div>
+</div>
+<mat-menu #profileMenu="matMenu" class="border-dark border border-1 mt-1" xPosition="before">
+  <div class="p-3 menu-container" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <ng-template [ngIf]="isLogged()">
+      <button class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
+        <mat-icon class="menu-icon">account_circle</mat-icon>
+        Mi perfil
+      </button>
+      <button (click)="logout()" class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
+        <mat-icon class="menu-icon">clear</mat-icon>
+        Cerrar sesión
+      </button>
+    </ng-template>
+    <ng-template [ngIf]="!isLogged()">
+      <button (click)="openAuth('login')" class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
+        Iniciar sesión
+      </button>
+      <button (click)="openAuth('register')" class="menu-item" fxLayout="row" fxLayoutAlign="start center"
+              mat-menu-item>
+        Registrase
+      </button>
+    </ng-template>
+    <button (click)="toggleTheme()" class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
+      <ng-template [ngIf]="isDarkTheme()">
+        <mat-icon class="menu-icon">wb_sunny</mat-icon>
+        <p class="m-2">Light Mode</p>
+      </ng-template>
+      <ng-template [ngIf]="!isDarkTheme()">
+        <mat-icon class="menu-icon">brightness_2</mat-icon>
+        <p class="m-2">Dark Mode</p>
+      </ng-template>
+    </button>
+  </div>
+</mat-menu>

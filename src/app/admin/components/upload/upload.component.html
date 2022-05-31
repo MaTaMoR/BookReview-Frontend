@@ -1,0 +1,13 @@
+<div class="upload-container unselectable" fxLayout="column" fxLayoutAlign="center center">
+  <div [className]="status" fxLayout="column" fxLayoutAlign="space-evenly center" fxFlexFill fxLayoutGap="10px">
+    <input type="file" class="file-input"
+           accept="img/*"
+           (change)="onFileSelected($event)" #fileUpload>
+
+    <p class="upload-status">{{ getStatus() }}</p>
+
+    <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+      <mat-icon>attach_file</mat-icon>
+    </button>
+  </div>
+</div>

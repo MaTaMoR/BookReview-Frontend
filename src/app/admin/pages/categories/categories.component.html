@@ -1,0 +1,33 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <h1 class="title text-align-center">Categories</h1>
+    <button mat-button (click)="openCreate()">Nueva categoria</button>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+    <ng-template [ngIf]="pageResponse">
+      <mat-paginator (page)="resize($event)"
+                     [length]="totalElements()"
+                     [pageIndex]="currentPage()"
+                     [pageSizeOptions]="pageSizeOptions"
+                     [pageSize]="pageSize()"
+                     aria-label="Select page" fxFlexFill>
+      </mat-paginator>
+
+      <div class="content p-3 data-container w-100">
+        <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="16px grid">
+          <div *ngFor="let category of pageResponse.content" fxFlex.lg="25%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xl="20%" fxFlex.xs="100%">
+            <app-category-entry [category]="category" (deleted)="update()"></app-category-entry>
+          </div>
+        </div>
+      </div>
+
+      <mat-paginator (page)="resize($event)"
+                     [length]="totalElements()"
+                     [pageIndex]="currentPage()"
+                     [pageSizeOptions]="pageSizeOptions"
+                     [pageSize]="pageSize()"
+                     aria-label="Select page" fxFlexFill>
+      </mat-paginator>
+    </ng-template>
+  </div>
+</div>

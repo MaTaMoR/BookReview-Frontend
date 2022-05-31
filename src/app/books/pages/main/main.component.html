@@ -1,5 +1,22 @@
-<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20">
-    <div fxFlex="50" fxLayout="row" fxLayoutAlign="center center" fxFlexFill class="p-3 slider-border">
-        <app-slider fxFlex="95"></app-slider>
-    </div>
+<app-navbar></app-navbar>
+<div class="mt-auto mb-5" fxLayout="column">
+  <mat-drawer-container autosize="false" class="mt-auto" fxFlexFill hasBackdrop="true">
+    <mat-drawer #drawer autoFocus="false" mode="over" position="end">
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content class="background-color">
+      <div fxLayout="column" fxLayoutGap="30px">
+        <div fxFlex="15" fxLayout="row" fxLayoutAlign="center center">
+          <app-banner></app-banner>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <div class="background-color-contrast" fxFlex="90" fxLayout="column">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>
+<app-footer></app-footer>

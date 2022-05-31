@@ -1,0 +1,48 @@
+<h1 class="text-center" mat-dialog-title>Búsqueda</h1>
+<mat-tab-group animationDuration="500ms" dynamicHeight mat-align-tabs="center">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>book</mat-icon>
+      Libros
+    </ng-template>
+    <div class="mt-3" fxLayout="column" fxLayoutAlign="center start">
+      <app-book-tab fxFlexFill></app-book-tab>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>local_library</mat-icon>
+      Reviews
+    </ng-template>
+    <div class="mt-3" fxLayout="column" fxLayoutAlign="center start">
+      <app-review-tab fxFlexFill></app-review-tab>
+    </div>
+  </mat-tab>
+  <mat-tab label="Categorias">
+    <ng-template mat-tab-label>
+      <mat-icon class="menu-icon">local_offer</mat-icon>
+      Categorías
+    </ng-template>
+    <div fxLayout="column" fxLayoutAlign="center start">
+      <app-category-tab fxFlexFill></app-category-tab>
+    </div>
+  </mat-tab>
+  <mat-tab label="Autores">
+    <ng-template mat-tab-label>
+      <mat-icon class="menu-icon">people_outline</mat-icon>
+      Autores
+    </ng-template>
+    <div fxLayout="column" fxLayoutAlign="center start">
+      <app-autor-tab fxFlexFill></app-autor-tab>
+    </div>
+  </mat-tab>
+  <mat-tab label="Editorials">
+    <ng-template mat-tab-label>
+      <mat-icon class="menu-icon">business</mat-icon>
+      Editoriales
+    </ng-template>
+    <div fxLayout="column" fxLayoutAlign="center start">
+      <app-editorial-tab fxFlexFill></app-editorial-tab>
+    </div>
+  </mat-tab>
+</mat-tab-group>

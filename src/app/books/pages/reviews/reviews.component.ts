@@ -1,12 +1,7 @@
-import { Component } from '@angular/core';
-import {
-    FilterRequest,
-    PageResponse,
-    ReviewRequest,
-    ReviewResponse
-} from "../../interfaces/interfaces";
+import {Component} from '@angular/core';
+import {FilterRequest, Page, Review, ReviewRequest} from "../../../shared/data/interfaces/interfaces";
 import {PageEvent} from "@angular/material/paginator";
-import {ReviewsService} from "../../services/reviews.service";
+import {ReviewsService} from "../../../shared/data/services/reviews.service";
 import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
@@ -14,52 +9,52 @@ import {ActivatedRoute, Params} from "@angular/router";
   templateUrl: './reviews.component.html',
   styleUrls: ['./reviews.component.css']
 })
-export class ReviewsComponent  {
+export class ReviewsComponent {
 
-    filter!: FilterRequest<ReviewRequest>;
-    pageSizeOptions: number[] = [ 5, 10, 20];
-    pageResponse!: PageResponse<ReviewResponse>;
+  filter!: FilterRequest<ReviewRequest>;
+  pageSizeOptions: number[] = [5, 10, 20];
+  pageResponse!: Page<Review>;
 
-    constructor(private reviewService: ReviewsService, private route: ActivatedRoute) {
-        this.route.queryParams.subscribe((params: Params) => {
-            const request = params['request'];
-            if (request) {
-                this.filter = reviewService.defaultFilter(JSON.parse(atob(request)));
-            } else {
-                this.filter = reviewService.defaultFilter();
-            }
+  constructor(private reviewService: ReviewsService, private route: ActivatedRoute) {
+    this.route.queryParams.subscribe((params: Params) => {
+      const request = params['request'];
+      if (request) {
+        this.filter = reviewService.defaultFilter(JSON.parse(atob(request)));
+      } else {
+        this.filter = reviewService.defaultFilter();
+      }
 
-            reviewService.filter(this.filter).subscribe((resp) => {
-                this.pageResponse = resp;
-            })
-        })
-    }
+      reviewService.filter(this.filter).subscribe((resp) => {
+        this.pageResponse = resp;
+      })
+    })
+  }
 
-    totalPages(): number {
-        const totalElements = this.pageResponse.page.totalElements;
-        const pageSize = this.pageResponse.page.size;
+  totalPages(): number {
+    const totalElements = this.pageResponse.page.totalElements;
+    const pageSize = this.pageResponse.page.size;
 
-        return totalElements / pageSize;
-    }
+    return totalElements / pageSize;
+  }
 
-    totalElements(): number {
-        return this.pageResponse.page.totalElements;
-    }
+  totalElements(): number {
+    return this.pageResponse.page.totalElements;
+  }
 
-    currentPage() {
-        return this.pageResponse.page.page;
-    }
+  currentPage() {
+    return this.pageResponse.page.page;
+  }
 
-    pageSize(): number {
-        return this.pageResponse.page.size;
-    }
+  pageSize(): number {
+    return this.pageResponse.page.size;
+  }
 
-    resize(event: PageEvent): void {
-        this.filter.page.size = event.pageSize;
-        this.filter.page.page = event.pageIndex;
+  resize(event: PageEvent): void {
+    this.filter.page.size = event.pageSize;
+    this.filter.page.page = event.pageIndex;
 
-        this.reviewService.filter(this.filter).subscribe((resp) => {
-            this.pageResponse = resp;
-        })
-    }
+    this.reviewService.filter(this.filter).subscribe((resp) => {
+      this.pageResponse = resp;
+    })
+  }
 }

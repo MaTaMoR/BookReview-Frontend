@@ -10,24 +10,27 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FlexLayoutModule, FlexModule} from "@angular/flex-layout";
 import {MaterialModule} from "./material/material.module";
+import {MAT_DATE_LOCALE} from "@angular/material/core";
 
 @NgModule({
-    declarations: [
-        AppComponent,
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        SharedModule,
-        BrowserAnimationsModule,
-        NgbModule,
-        FlexModule,
-        FlexLayoutModule,
-        MaterialModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    SharedModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    FlexModule,
+    FlexLayoutModule,
+    MaterialModule
+  ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'es-ES'},
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

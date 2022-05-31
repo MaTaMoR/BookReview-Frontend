@@ -1,0 +1,10 @@
+<div fxFlexFill fxLayout="column" fxLayoutAlign="center start">
+  <app-multi-auto-completer #input [completer]="categoryCompleter" fxFlexFill title="Nombre"></app-multi-auto-completer>
+  <div fxFlexFill fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+    <button (click)="buscar()" class="mt-3" fxLayout="row" mat-button>Buscar</button>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <p class="text-toggle unselectable">Busqueda inclusiva</p>
+      <mat-slide-toggle [var]="inclusiveSearch"></mat-slide-toggle>
+    </div>
+  </div>
+</div>

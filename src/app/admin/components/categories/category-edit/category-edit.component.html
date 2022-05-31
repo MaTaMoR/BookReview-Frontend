@@ -1,0 +1,22 @@
+<mat-dialog-content class="unselectable">
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <form [formGroup]="formHandler.formGroup" class="mt-3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <!-- NOMBRE -->
+      <mat-form-field appearance="standard" fxFlexFill class="border-with-color p-3">
+        <mat-label>Nombre</mat-label>
+        <input autocomplete="off" class="text-align-center" formControlName="name" matInput name="name" type="text">
+        <mat-hint *ngIf="formHandler.hasError('name')">
+          <p class="form-error">{{ formHandler.getError('name') }}</p>
+        </mat-hint>
+      </mat-form-field>
+    </form>
+    <div fxLayout="row" fxLayoutAlign="center center" class="submit-border" fxFlexFill fxLayoutGap="20px">
+      <!-- SUBMIT -->
+      <button (click)="send()" [disabled]="loading" class="mt-3" mat-button type="submit">Enviar cambios</button>
+
+      <ng-template [ngIf]="isNew">
+        <button (click)="delete()" [disabled]="loading" class="mt-3" mat-button type="submit">Borrar</button>
+      </ng-template>
+    </div>
+  </div>
+</mat-dialog-content>

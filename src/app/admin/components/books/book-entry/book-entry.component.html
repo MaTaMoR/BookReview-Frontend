@@ -1,0 +1,17 @@
+<ng-template [ngIf]="book">
+  <mat-card (click)="onClick()" class="my-1 unselectable background-secondary">
+    <div fxFlexFill fxLayout="column" fxLayoutAlign="center start">
+      <mat-card-header>
+        <mat-card-title class="title-clamp">{{ book.title }}</mat-card-title>
+        <mat-card-subtitle>{{ book.autor.name + ' ' + book.autor.surnames }}</mat-card-subtitle>
+      </mat-card-header>
+      <img [src]="book.image.id | image" alt="review" class="card-image" mat-card-image>
+      <mat-card-content>
+        <p class="line-clamp">{{ book.description }}</p>
+      </mat-card-content>
+      <mat-card-actions fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+        <button mat-button>Editar</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</ng-template>

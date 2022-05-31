@@ -1,0 +1,57 @@
+<mat-dialog-content class="unselectable">
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="column column" fxLayoutGap="20px">
+      <div fxFlex="50" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+        <img class="edit-image" [src]="(review.image ? (review.image.id | image) : 'assets/no-image.jpg')" alt="img">
+        <button mat-button (click)="openUpload()">Cambiar imagen</button>
+      </div>
+      <div fxFlex="50">
+        <form [formGroup]="formHandler.formGroup" class="mt-3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <!-- LIBRO -->
+          <div fxFlexFill class="border-with-color p-3">
+            <p class="text-color-on-contrast">Libro</p>
+            <app-single-auto-completer [completer]="bookCompleter" fxFlexFill title="Nombre"></app-single-auto-completer>
+          </div>
+
+          <!-- REVIEW -->
+          <mat-form-field appearance="standard" fxFlexFill class="border-with-color p-3">
+            <mat-label>Review</mat-label>
+            <textarea autocomplete="off" class="text-align-justify" formControlName="review" matInput name="review" type="text"></textarea>
+            <mat-hint *ngIf="formHandler.hasError('review')">
+              <p class="form-error">{{ formHandler.getError('review') }}</p>
+            </mat-hint>
+          </mat-form-field>
+
+          <!-- TOTAL DE PÁGINAS -->
+          <mat-form-field appearance="standard" fxFlexFill class="border-with-color p-3">
+            <mat-label>Puntuación</mat-label>
+            <input autocomplete="off" class="text-align-center" formControlName="score" matInput name="score" type="number">
+            <mat-hint *ngIf="formHandler.hasError('score')">
+              <p class="form-error">{{ formHandler.getError('score') }}</p>
+            </mat-hint>
+          </mat-form-field>
+
+          <!-- SCORE -->
+          <mat-form-field appearance="standard" fxFlexFill class="border-with-color p-3">
+            <mat-label>Fecha de publicación</mat-label>
+            <input matInput [matDatepicker]="reviewDate" formControlName="reviewDate"  class="text-align-center">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="reviewDate"></mat-datepicker-toggle>
+            <mat-datepicker #reviewDate></mat-datepicker>
+            <mat-hint *ngIf="formHandler.hasError('reviewDate')">
+              <p class="form-error">{{ formHandler.getError('reviewDate') }}</p>
+            </mat-hint>
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" class="submit-border" fxFlexFill fxLayoutGap="20px">
+      <!-- SUBMIT -->
+      <button (click)="send()" [disabled]="loading" class="mt-3" mat-button type="submit">Enviar cambios</button>
+
+      <ng-template [ngIf]="isNew">
+        <button (click)="delete()" [disabled]="loading" class="mt-3" mat-button type="submit">Borrar</button>
+      </ng-template>
+    </div>
+  </div>
+</mat-dialog-content>

@@ -8,19 +8,19 @@ import {FormControl} from "@angular/forms";
   templateUrl: './multi-auto-completer.component.html',
   styleUrls: ['./multi-auto-completer.component.css']
 })
-export class MultiAutoCompleterComponent<T>  {
+export class MultiAutoCompleterComponent<T> {
 
-    readonly separatorKeysCodes = [ENTER, COMMA] as const;
+  readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
-    @Input('title') title: string = 'Chips';
-    @Input('completer') completer!: MultiAutoCompleter<T>;
-    public formControl: FormControl = new FormControl();
+  @Input('title') title: string = 'Chips';
+  @Input('completer') completer!: MultiAutoCompleter<T>;
+  public formControl: FormControl = new FormControl();
 
-    ngOnInit(): void {
-        this.completer.setInput(this.formControl);
-    }
+  get input() {
+    return this.formControl.value;
+  }
 
-    get input() {
-        return this.formControl.value;
-    }
+  ngOnInit(): void {
+    this.completer.setInput(this.formControl);
+  }
 }

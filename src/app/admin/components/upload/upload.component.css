@@ -1,0 +1,36 @@
+.upload-container {
+  border: 1px solid var(--border-color) !important;
+  margin: 10px !important;
+  width: 300px !important;
+  height: 300px !important;
+}
+
+.not-selected {
+  background-color: beige !important;
+}
+
+.success {
+  background-color: greenyellow !important;
+}
+
+.uploading {
+  background-color: yellow !important;
+}
+
+.failed {
+  background-color: red !important;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-btn {
+  transform: scale(2);
+}
+
+.upload-status {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color-primary)
+}

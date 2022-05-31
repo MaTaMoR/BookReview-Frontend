@@ -1,0 +1,24 @@
+<ng-template [ngIf]="pageResponse">
+  <mat-paginator (page)="resize($event)"
+                 [length]="totalElements()"
+                 [pageIndex]="currentPage()"
+                 [pageSizeOptions]="pageSizeOptions"
+                 [pageSize]="pageSize()"
+                 aria-label="Select page">
+  </mat-paginator>
+  <div class="content p-3 book-container">
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="16px grid">
+      <div *ngFor="let category of pageResponse.content" fxFlex.lg="25%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xl="20%"
+           fxFlex.xs="100%">
+        <app-category-entry (click)="onClick(category)" [category]="category"></app-category-entry>
+      </div>
+    </div>
+  </div>
+  <mat-paginator (page)="resize($event)"
+                 [length]="totalElements()"
+                 [pageIndex]="currentPage()"
+                 [pageSizeOptions]="pageSizeOptions"
+                 [pageSize]="pageSize()"
+                 aria-label="Select page">
+  </mat-paginator>
+</ng-template>

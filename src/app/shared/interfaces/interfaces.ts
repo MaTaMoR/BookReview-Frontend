@@ -1,52 +1,50 @@
-import {CategoryResponse} from "../../books/interfaces/interfaces";
 import {Observable} from "rxjs";
-
-export interface SearchData {
-    search: string;
-    categories: CategoryResponse[];
-}
-
-export interface AuthData {
-    tab: "login" | "register";
-}
 
 export interface DataProvider<T> {
 
-    getData: (value: string) => Observable<T[]>;
+  getData: (value: string) => Observable<T[]>;
 
 }
 
 export interface AuthRegisterRequest {
-    username: string;
-    name: string;
-    surnames: string;
-    email: string;
-    password: string;
+  username: string;
+  name: string;
+  surnames: string;
+  email: string;
+  password: string;
 }
 
 export interface AuthLoginRequest {
-    username: string;
-    password: string;
+  username: string;
+  password: string;
 }
 
 export interface AuthResponse {
-    token: string;
+  token: string;
 }
 
 export interface AuthUserImage {
-    id: string;
-    name: string;
-    type: string;
+  id: string;
+  name: string;
+  type: string;
 }
 
-export interface AuthUserResponse {
-    username: string;
-    name: string;
-    surnames: string;
-    email: string;
-    image: AuthUserImage;
+export interface AuthPrivilege {
+  id: string;
+  name: string;
 }
 
-export interface AuthUser extends AuthUserResponse {
-    token: string;
+export interface AuthRole {
+  id: string;
+  name: string;
+  privileges: AuthPrivilege[];
+}
+
+export interface AuthUser {
+  username: string;
+  name: string;
+  surnames: string;
+  email: string;
+  image: AuthUserImage;
+  roles: AuthRole[];
 }

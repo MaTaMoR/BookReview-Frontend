@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ReviewResponse} from "../../../interfaces/interfaces";
+import {Review} from "../../../../shared/data/interfaces/interfaces";
 import {Router} from "@angular/router";
 
 @Component({
@@ -9,11 +9,12 @@ import {Router} from "@angular/router";
 })
 export class ReviewEntryComponent {
 
-    @Input('review') review!: ReviewResponse;
+  @Input('review') review!: Review;
 
-    constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
-    onClick(): void {
-        this.router.navigate(['/review', this.review.id]);
-    }
+  onClick(): void {
+    this.router.navigate(['/review', this.review.id]);
+  }
 }

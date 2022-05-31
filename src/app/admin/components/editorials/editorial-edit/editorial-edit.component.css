@@ -1,0 +1,9 @@
+.edit-image {
+  width: 200px;
+  height: 200px;
+  border: 1px solid var(--border-color);
+}
+
+.submit-border {
+  border-top: 1px solid var(--border-color);
+}

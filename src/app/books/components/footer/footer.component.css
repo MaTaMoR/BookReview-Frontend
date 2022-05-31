@@ -1,0 +1,21 @@
+.footer-container {
+  height: 200px;
+}
+
+.footer-title-font {
+  font-family: 'title-font', serif;
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 2rem;
+  color: var(--text-color-on-primary);
+}
+
+.footer-subtitle-font {
+  font-family: 'Garnet Capitals', Arial, serif;
+  font-size: 1.75rem;
+  color: var(--text-color-on-primary);
+}
+
+.footer-copyright {
+  color: var(--text-color-on-primary);
+}

@@ -1,0 +1,13 @@
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'secondary-font', serif;
+  cursor: pointer;
+  line-height: normal;
+  text-shadow: 2px 2px var(--text-color-shadow);
+}
+
+.data-container {
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}

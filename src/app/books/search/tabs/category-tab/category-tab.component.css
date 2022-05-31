@@ -1,0 +1,5 @@
+.text-toggle {
+  color: var(--text-color-on-contrast);
+  font-size: 1rem;
+  font-weight: bold;
+}

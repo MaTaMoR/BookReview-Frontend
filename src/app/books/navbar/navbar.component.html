@@ -1,0 +1,68 @@
+<header class="sticky-top unselectable">
+  <mat-toolbar class="background-primary" fxLayout="row" fxLayoutAlign="space-between space-between">
+    <!-- BIG SCREEN -->
+    <div fxFlexFill fxHide fxLayout="row" fxLayoutAlign="start space-between" fxShow.gt-sm>
+      <div fxFlex="50" fxFlexFill fxLayout="column" fxLayoutAlign="center start">
+        <app-title routerLink="/"></app-title>
+      </div>
+      <div fxFlex="50" fxLayout="row" fxLayoutAlign="end center">
+        <ul class="navbar-list" fxFlexFill fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="30px">
+          <li class="h-100" fxLayout="row" fxLayoutAlign="center center">
+            <app-profile-navbar class="h-100"></app-profile-navbar>
+          </li>
+          <li fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon (click)="openSearch()" class="navbar-icon">search</mat-icon>
+          </li>
+          <li [matMenuTriggerFor]="linksMenu" class="navbar-item" fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon class="navbar-icon">menu</mat-icon>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- SMALL SCREEN -->
+    <div fxFlexFill fxHide fxLayout="row" fxLayoutAlign="start space-between" fxShow.lt-md>
+      <ul class="navbar-list" fxFlexFill fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="50px">
+        <li class="navbar-item" fxLayout="row" fxLayoutAlign="center center">
+          <mat-icon (click)="openSearch()" class="navbar-icon">search</mat-icon>
+        </li>
+        <li class="navbar-item" fxLayout="row" fxLayoutAlign="center center">
+          <mat-icon (click)="toggleSidenav()" class="navbar-icon">menu</mat-icon>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar>
+</header>
+<mat-menu #linksMenu="matMenu" class="border-dark border border-1 mt-1 menu-container" xPosition="before">
+  <div class="p-3 menu-container" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <button class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item routerLink="/">
+      <mat-icon class="menu-icon">home</mat-icon>
+      Inicio
+    </button>
+    <button class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item routerLink="/books">
+      <mat-icon class="menu-icon">book</mat-icon>
+      Libros
+    </button>
+    <button class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item routerLink="/reviews">
+      <mat-icon>local_library</mat-icon>
+      Reviews
+    </button>
+    <button class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item routerLink="/autors">
+      <mat-icon class="menu-icon">people_outline</mat-icon>
+      Autores
+    </button>
+    <button class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item routerLink="/categories">
+      <mat-icon class="menu-icon">local_offer</mat-icon>
+      Categorías
+    </button>
+    <button class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item routerLink="/editorials">
+      <mat-icon class="menu-icon">business</mat-icon>
+      Editoriales
+    </button>
+    <ng-template [ngIf]="hasPrivilege('EDIT')">
+      <button fxFlexFill mat-button routerLink="/admin">
+        <mat-icon class="menu-icon">edit</mat-icon>
+        Admin
+      </button>
+    </ng-template>
+  </div>
+</mat-menu>

@@ -1,0 +1,44 @@
+<div class="w-100 unselectable" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <mat-accordion class="w-100 mt-1">
+    <mat-expansion-panel class="w-100">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="title p-2" fxLayout="row" fxLayoutAlign="center center">
+          Menu
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+        <button fxFlexFill mat-button routerLink="/">
+          <mat-icon class="menu-icon">home</mat-icon>
+          Inicio
+        </button>
+        <button fxFlexFill mat-button routerLink="/books">
+          <mat-icon class="menu-icon">book</mat-icon>
+          Libros
+        </button>
+        <button fxFlexFill mat-button routerLink="/reviews">
+          <mat-icon>local_library</mat-icon>
+          Reviews
+        </button>
+        <button fxFlexFill mat-button routerLink="/autors">
+          <mat-icon class="menu-icon">people_outline</mat-icon>
+          Autores
+        </button>
+        <button fxFlexFill mat-button routerLink="/categories">
+          <mat-icon class="menu-icon">local_offer</mat-icon>
+          Categorías
+        </button>
+        <button fxFlexFill mat-button routerLink="/editorials">
+          <mat-icon class="menu-icon">business</mat-icon>
+          Editoriales
+        </button>
+        <ng-template [ngIf]="hasPrivilege('EDIT')">
+          <button fxFlexFill mat-button routerLink="/admin">
+            <mat-icon class="menu-icon">edit</mat-icon>
+            Admin
+          </button>
+        </ng-template>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

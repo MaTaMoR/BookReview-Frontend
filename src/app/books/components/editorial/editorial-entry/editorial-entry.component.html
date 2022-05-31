@@ -1,0 +1,13 @@
+<ng-template [ngIf]="editorial">
+  <mat-card (click)="onClick()" class="my-1 unselectable background-secondary">
+    <div fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+      <img class="editorial-image" [src]="(editorial.image ? (editorial.image.id | image) : 'assets/no-image.jpg')" alt="img">
+      <mat-card-header fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+        <mat-card-title class="title-clamp">{{ editorial.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-actions fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+        <button mat-button>VER LIBROS DE EDITORIAL</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</ng-template>

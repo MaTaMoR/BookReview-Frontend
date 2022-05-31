@@ -1,7 +1,7 @@
 <ng-template [ngIf]="reviews">
-    <swiper [config]="sliderConfig">
-        <ng-template swiperSlide *ngFor="let review of reviews">
-            <app-review-entry [review]="review"></app-review-entry>
-        </ng-template>
-    </swiper>
+  <swiper [config]="sliderConfig">
+    <ng-template *ngFor="let review of reviews" swiperSlide>
+      <app-review-entry [review]="review"></app-review-entry>
+    </ng-template>
+  </swiper>
 </ng-template>

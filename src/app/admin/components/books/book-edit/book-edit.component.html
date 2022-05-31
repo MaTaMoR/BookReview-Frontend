@@ -1,0 +1,91 @@
+<mat-dialog-content class="unselectable">
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="column column" fxLayoutGap="20px">
+      <div fxFlex="50" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+        <img class="edit-image" [src]="(book.image ? (book.image.id | image) : 'assets/no-image.jpg')" alt="img">
+        <button mat-button (click)="openUpload()">Cambiar imagen</button>
+      </div>
+      <div fxFlex="50">
+        <form [formGroup]="formHandler.formGroup" class="mt-3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <!-- TÍTULO -->
+          <mat-form-field appearance="standard" fxFlexFill class="border-with-color p-3">
+            <mat-label>Título</mat-label>
+            <input autocomplete="off" class="text-align-center" formControlName="title" matInput name="title" type="text">
+            <mat-hint *ngIf="formHandler.hasError('title')">
+              <p class="form-error">{{ formHandler.getError('title') }}</p>
+            </mat-hint>
+          </mat-form-field>
+
+          <!-- DESCRIPCIÓN -->
+          <mat-form-field appearance="standard" fxFlexFill class="border-with-color p-3">
+            <mat-label>Descripción</mat-label>
+            <textarea autocomplete="off" class="text-align-justify" formControlName="description" matInput name="description" type="text"></textarea>
+            <mat-hint *ngIf="formHandler.hasError('description')">
+              <p class="form-error">{{ formHandler.getError('description') }}</p>
+            </mat-hint>
+          </mat-form-field>
+
+          <!-- TIPO DE LIBRO -->
+          <mat-form-field appearance="standard" fxFlexFill class="border-with-color p-3">
+            <mat-label>Tipo de libro</mat-label>
+            <mat-select class="text-align-center" formControlName="bookType">
+              <mat-option *ngFor="let bookType of bookTypes" [value]="bookType">
+                {{bookType}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- FECHA DE PUBLICACIÓN -->
+          <mat-form-field appearance="standard" fxFlexFill class="border-with-color p-3">
+            <mat-label>Fecha de publicación</mat-label>
+            <input matInput [matDatepicker]="publishedDate" formControlName="publishedDate"  class="text-align-center">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="publishedDate"></mat-datepicker-toggle>
+            <mat-datepicker #publishedDate></mat-datepicker>
+            <mat-hint *ngIf="formHandler.hasError('publishedDate')">
+              <p class="form-error">{{ formHandler.getError('publishedDate') }}</p>
+            </mat-hint>
+          </mat-form-field>
+
+          <!-- TOTAL DE PÁGINAS -->
+          <mat-form-field appearance="standard" fxFlexFill class="border-with-color p-3">
+            <mat-label>Total de páginas</mat-label>
+            <input autocomplete="off" class="text-align-center" formControlName="totalPages" matInput name="totalPages" type="number">
+            <mat-hint *ngIf="formHandler.hasError('totalPages')">
+              <p class="form-error">{{ formHandler.getError('totalPages') }}</p>
+            </mat-hint>
+          </mat-form-field>
+        </form>
+      </div>
+      <div fxFlex="50">
+        <form [formGroup]="formHandler.formGroup" class="mt-3" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <!-- CATEGORIAS -->
+          <div fxFlexFill class="border-with-color p-3">
+            <p class="text-color-on-contrast">Categorías</p>
+            <app-multi-auto-completer [completer]="categoryCompleter" fxFlexFill title="Nombre"></app-multi-auto-completer>
+          </div>
+
+          <!-- AUTOR -->
+          <div fxFlexFill class="border-with-color p-3">
+            <p class="text-color-on-contrast">Autor</p>
+            <app-single-auto-completer [completer]="autorCompleter" fxFlexFill title="Nombre"></app-single-auto-completer>
+          </div>
+
+          <!-- EDITORIAL -->
+          <div fxFlexFill class="border-with-color p-3">
+            <p class="text-color-on-contrast">Editorial</p>
+            <app-single-auto-completer [completer]="editorialCompleter" fxFlexFill title="Nombre"></app-single-auto-completer>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" class="submit-border" fxFlexFill fxLayoutGap="20px">
+      <!-- SUBMIT -->
+      <button (click)="send()" [disabled]="loading" class="mt-3" mat-button type="submit">Enviar cambios</button>
+
+      <ng-template [ngIf]="isNew">
+        <button (click)="delete()" [disabled]="loading" class="mt-3" mat-button type="submit">Borrar</button>
+      </ng-template>
+    </div>
+  </div>
+</mat-dialog-content>

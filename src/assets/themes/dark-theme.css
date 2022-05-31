@@ -1,13 +1,14 @@
 body {
-    --primary-color: #b6120f;
-    --secondary-color: #950101;
-    --background-color: #000000;
-    --background-color-contrast: #3D0000;
-    --text-color-primary: black;
-    --text-color-secondary: black;
-    --text-color-on-primary: white;
-    --text-color-on-secondary: black;
-    --text-color-on-contrast: white;
-    --text-color-shadow: white;
-    --border-color: white;
+  --primary-color: #b6120f;
+  --secondary-color: #950101;
+  --background-color: #000000;
+  --background-color-contrast: #3D0000;
+  --text-color-primary: black;
+  --text-color-secondary: black;
+  --text-color-on-primary: white;
+  --text-color-on-secondary: black;
+  --text-color-on-contrast: white;
+  --text-color-shadow: white;
+  --border-color: white;
+  --footer-color: black;
 }

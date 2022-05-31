@@ -1,54 +1,54 @@
 .detail-image {
-    width: 100%;
-    height: 100%;
-    border: 1px solid var(--border-color);
-    padding: 1px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border-color);
+  padding: 1px;
 }
 
 .book-content {
-    text-align: justify;
-    color: var(--text-color-on-contrast);
-    max-width: 750px !important;
+  text-align: justify;
+  color: var(--text-color-on-contrast);
+  max-width: 750px !important;
 }
 
 .book-border {
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .book-title {
-    font-size: 3rem;
-    font-weight: bold;
-    font-family: 'secondary-font', serif;
-    cursor: pointer;
-    text-shadow: 2px 2px var(--text-color-shadow);
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'secondary-font', serif;
+  cursor: pointer;
+  text-shadow: 2px 2px var(--text-color-shadow);
 }
 
 .book-subtitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-family: 'secondary-font', serif;
-    cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'secondary-font', serif;
+  cursor: pointer;
 }
 
 .content-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 .list-item {
-    font-size: 20px;
-    color: var(--text-color-on-contrast);
+  font-size: 20px;
+  color: var(--text-color-on-contrast);
 }
 
 .list-item-bold {
-    cursor: pointer;
-    font-weight: bold;
-    color: var(--text-color-on-contrast);
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--text-color-on-contrast);
 }
 
 .rating-color {
-    color: #FFC107;
-    font-size: 2rem;
+  color: #FFC107;
+  font-size: 2rem;
 }

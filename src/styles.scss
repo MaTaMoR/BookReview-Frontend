@@ -1,167 +1,184 @@
 .background-primary {
-    background-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
 }
 
 .background-secondary {
-    background-color: var(--secondary-color) !important;
+  background-color: var(--secondary-color) !important;
 }
 
 .background-color {
-    background-color: var(--background-color) !important;
+  background-color: var(--background-color) !important;
 }
 
 .background-color-contrast {
-    background-color: var(--background-color-contrast) !important;
+  background-color: var(--background-color-contrast) !important;
 }
 
 .color-primary {
-    color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
 }
 
 .color-secondary {
-    color: var(--secondary-color) !important;
+  color: var(--secondary-color) !important;
 }
+
 .color-background {
-    color: var(--background-color) !important;
+  color: var(--background-color) !important;
 }
 
 .text-color-on-primary {
-    color: var(--text-color-on-primary) !important;
+  color: var(--text-color-on-primary) !important;
 }
 
 .text-color-on-secondary {
-    color: var(--text-color-on-secondary) !important;
+  color: var(--text-color-on-secondary) !important;
 }
 
 .text-color-on-contrast {
-    color: var(--text-color-on-contrast) !important;
+  color: var(--text-color-on-contrast) !important;
 }
 
 .text-color-primary {
-    color: var(--text-color-primary) !important;
+  color: var(--text-color-primary) !important;
 }
 
 .text-color-secondary {
-    color: var(--text-color-secondary) !important;
+  color: var(--text-color-secondary) !important;
 }
 
 .border-with-color {
-    border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.footer-color {
+  background-color: var(--footer-color);
 }
 
 body {
-    background-color: var(--background-color) !important;
+  background-color: var(--background-color) !important;
+  height: 100% !important;
+  width: 100% !important;
+  max-height: 100% !important;
 }
 
 .unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 :root {
-    height: 100% !important;
-    width: 100% !important;
-    max-height: 100% !important;
+  height: 100% !important;
+  width: 100% !important;
+  max-height: 100% !important;
 
-    /*
-    --primary-color: white;
-    --secondary-color: #e41613;
-    --background-color: whitesmoke;
-    --text-color: black;
-    */
+  /*
+  --primary-color: white;
+  --secondary-color: #e41613;
+  --background-color: whitesmoke;
+  --text-color: black;
+  */
 }
 
 @font-face {
-    font-family: "title-font";
-    src: local("Genit"), url(./assets/fonts/genit.otf) format("truetype");
+  font-family: "title-font";
+  src: local("Genit"), url(./assets/fonts/genit.otf) format("truetype");
 }
 
 @font-face {
-    font-family: "secondary-font";
-    src: local("Garnet"), url(./assets/fonts/GarnetCapitals-Thin.ttf) format("truetype");
+  font-family: "secondary-font";
+  src: local("Garnet"), url(./assets/fonts/GarnetCapitals-Thin.ttf) format("truetype");
 }
 
 .swiper-button-prev {
-    color: var(--text-color-primary) !important;
+  color: var(--text-color-primary) !important;
 }
 
 .swiper-button-next {
-    color: var(--text-color-primary) !important;
+  color: var(--text-color-primary) !important;
 }
 
 .mat-dialog-container {
-    background: var(--secondary-color) !important;
-    color: var(--text-color-on-primary) !important;
+  background: var(--secondary-color) !important;
+  color: var(--text-color-on-primary) !important;
 }
 
 .mat-form-field {
-    color: var(--text-color-primary) !important;
+  color: var(--text-color-primary) !important;
 }
 
 .mat-button {
-    background-color: var(--text-color-primary) !important;
-    color: var(--text-color-on-primary)
+  background-color: var(--text-color-primary) !important;
+  color: var(--text-color-on-primary)
 }
 
 .mat-tab-label, .mat-tab-link {
-    color: var(--text-color-on-contrast) !important;
-    opacity: unset !important;
+  color: var(--text-color-on-contrast) !important;
+  opacity: unset !important;
 }
 
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-    background-color: var(--text-color-on-contrast) !important;
+  background-color: var(--text-color-on-contrast) !important;
 }
 
 .mat-form-field.mat-form-field-invalid {
-    color: var(--text-color-on-contrast) !important;
+  color: var(--text-color-on-contrast) !important;
 }
 
 .mat-form-field-appearance-standard .mat-form-field-underline {
-    background-color: var(--text-color-on-contrast) !important;
+  background-color: var(--text-color-on-contrast) !important;
 }
+
 .mat-form-field.mat-focused .mat-form-field-label {
-    color: var(--text-color-on-contrast) !important;
+  color: var(--text-color-on-contrast) !important;
 }
 
 .mat-form-field-label {
-    color: var(--text-color-on-contrast) !important;
+  color: var(--text-color-on-contrast) !important;
 }
 
 .mat-form-field.mat-focused .mat-form-field-ripple {
-    background-color: var(--border-color) !important;
+  background-color: var(--border-color) !important;
 }
 
 .mat-paginator {
-    background-color: var(--primary-color);
-    color: var(--text-color-on-primary) !important;
+  background-color: var(--primary-color);
+  color: var(--text-color-on-primary) !important;
 }
 
 .mat-paginator, .mat-paginator-page-size .mat-select-trigger {
-    color: var(--text-color-on-primary) !important;
-    font-size: 1rem;
+  color: var(--text-color-on-primary) !important;
+  font-size: 1rem;
 }
 
 .mat-select-value {
-    color: var(--text-color-on-primary) !important;
-    font-size: 1rem;
+  color: var(--text-color-on-primary) !important;
+  font-size: 1rem;
 }
 
 .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-    color: var(--text-color-on-primary) !important;
-    font-size: 1rem;
+  color: var(--text-color-on-primary) !important;
+  font-size: 1rem;
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-    background-color: var(--text-color-on-contrast) !important;
+  background-color: var(--text-color-on-contrast) !important;
 }
 
 .text-align-center {
-    text-align: center !important;
+  text-align: center !important;
+}
+
+.text-align-justify {
+  text-align: justify !important;
 }
 
 .mat-panel-description {
-    color: var(--text-color-secondary);
+  color: var(--text-color-secondary) !important;
+}
+
+.mat-select-value {
+  color: var(--text-color-secondary) !important;
 }
