@@ -1,0 +1,17 @@
+<ng-template [ngIf]="completer">
+  <div fxLayout="column" fxLayoutAlign="center start">
+    <mat-form-field fxFlexFill>
+      <input [formControl]="formControl" [matAutocomplete]="inputCompleter" class="text-align-center"
+             [placeholder]="'Introduce el ' + title" aria-label="Number" fxFlexFill matInput>
+    </mat-form-field>
+
+    <mat-autocomplete #inputCompleter="matAutocomplete" (optionSelected)="completer.selectValue($event.option.value)">
+      <mat-option *ngIf="completer.isLoading" [disabled]="true" class="is-loading">
+        <mat-spinner diameter="20"></mat-spinner>
+      </mat-option>
+      <mat-option *ngFor="let value of completer.results" [value]="value">
+        {{completer.toString(value)}}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+</ng-template>
