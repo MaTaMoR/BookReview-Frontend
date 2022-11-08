@@ -1,0 +1,32 @@
+<mat-card class="profile-container unselectable">
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <img [src]="(isLogged() && getProfile().image) ? (getProfile().image.id | image) : 'assets/unknown_user.jpg'"
+           alt=""
+           class="profile-image">
+      <span *ngIf="isLogged()"> {{ getProfile().username }}</span>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <ul class="profile-actions">
+        <ng-template [ngIf]="isLogged()">
+          <li class="profile-entry" (click)="openProfile()">Mi perfil</li>
+          <li class="profile-entry" (click)="logout()">Cerrar sesión</li>
+        </ng-template>
+        <ng-template [ngIf]="!isLogged()">
+          <li class="profile-entry" (click)="openAuth('login')">Iniciar sesión</li>
+          <li class="profile-entry" (click)="openAuth('register')">Registrarse</li>
+        </ng-template>
+        <button (click)="toggleTheme()" class="menu-item theme-container" fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
+          <ng-template [ngIf]="isDarkTheme()">
+            <mat-icon class="menu-icon">wb_sunny</mat-icon>
+            <p class="m-2 profile-entry">Light Mode</p>
+          </ng-template>
+          <ng-template [ngIf]="!isDarkTheme()">
+            <mat-icon class="menu-icon">brightness_2</mat-icon>
+            <p class="m-2 profile-entry">Dark Mode</p>
+          </ng-template>
+        </button>
+      </ul>
+    </div>
+  </div>
+</mat-card>

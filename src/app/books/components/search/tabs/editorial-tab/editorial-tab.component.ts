@@ -1,12 +1,12 @@
 import {Component, ViewChild} from '@angular/core';
-import {SingleAutoCompleter} from "../../../../shared/utils/utils";
-import {BookRequest, Editorial, EditorialRequest} from "../../../../shared/data/interfaces/interfaces";
+import {SingleAutoCompleter} from "../../../../../shared/utils/utils";
+import {BookRequest, Editorial, EditorialRequest} from "../../../../../shared/data/interfaces/interfaces";
 import {
   SingleAutoCompleterComponent
-} from "../../../../shared/components/single-auto-completer/single-auto-completer.component";
+} from "../../../../../shared/components/single-auto-completer/single-auto-completer.component";
 import {Router} from "@angular/router";
 import {map} from "rxjs";
-import {EditorialService} from "../../../../shared/data/services/editorial.service";
+import {EditorialService} from "../../../../../shared/data/services/editorial.service";
 
 @Component({
   selector: 'app-editorial-tab',

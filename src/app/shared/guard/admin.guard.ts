@@ -10,17 +10,14 @@ export class AdminGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean|UrlTree>|Promise<boolean|UrlTree>|boolean|UrlTree {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
+    Observable<boolean|UrlTree>|Promise<boolean|UrlTree>|boolean|UrlTree {
+
     if (!this.authService.hasPrivilege('EDIT')) {
-      console.log('no edit');
       this.router.navigateByUrl('/');
       return false;
     }
 
-    console.log('si edit');
     return true;
   }
 }

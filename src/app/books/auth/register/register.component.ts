@@ -31,7 +31,7 @@ export class RegisterComponent extends FormGroupHandler {
     if (this.formGroup.valid) {
       const {username, name, surnames, email, password, confirmPassword} = this.formGroup.value;
       if (password != confirmPassword) {
-        Swal.fire('Error', '¡Las contraseñas no coinciden!', 'error');
+        Swal.fire('¡Las contraseñas no coinciden!', '', 'error');
       } else {
         const request: AuthRegisterRequest = {
           username,
@@ -51,9 +51,9 @@ export class RegisterComponent extends FormGroupHandler {
           if (code == 200) {
             this.dialog.closeAll();
           } else if (code == 400) {
-            Swal.fire('Error', '¡Un usuario con este username o email ya existe!', 'error');
+            Swal.fire('¡Un usuario con este username o email ya existe!', '', 'error');
           } else {
-            Swal.fire('Error', '¡Ha ocurrido un error al contactar con el servidor!', 'error');
+            Swal.fire('¡Ha ocurrido un error al contactar con el servidor!', '', 'error');
           }
         });
       }

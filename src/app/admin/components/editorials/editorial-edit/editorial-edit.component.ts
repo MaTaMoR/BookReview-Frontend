@@ -8,7 +8,7 @@ import {CategoryService} from "../../../../shared/data/services/category.service
 import {AuthService} from "../../../../shared/services/auth.service";
 import {AdminService} from "../../../services/admin.service";
 import Swal from "sweetalert2";
-import {UploadComponent} from "../../upload/upload.component";
+import {UploadComponent} from "../../../../shared/components/upload/upload.component";
 
 @Component({
   selector: 'app-editorial-edit',
@@ -58,14 +58,18 @@ export class EditorialEditComponent {
         if (response) {
           this.dialogRef.close(true);
         } else {
-          Swal.fire('Error', '¡No puedes borrar una editorial con un libro asociado!', 'error');
+          Swal.fire('¡No puedes borrar una editorial con un libro asociado!', '', 'error');
         }
       })
     }
   }
 
   send(): void {
-    if (this.isValid() && !this.loading) {
+    if (!this.isValid()) {
+      Swal.fire('¡La información contiene errores!', '', 'error');
+    } else if (this.loading) {
+      Swal.fire('¡Espera a que acabe de cargar!', '', 'error');
+    } else {
       this.loading = true;
 
       const name: string = this.formHandler.getValue('name');
@@ -77,6 +81,12 @@ export class EditorialEditComponent {
       };
 
       this.adminService.updateOrCreateEditorial(newEditorial).subscribe((resp) => {
+        if (newEditorial.id) {
+          Swal.fire('¡Editorial actualizada!', '', 'success');
+        } else {
+          Swal.fire('¡Editorial creada!', '', 'success');
+        }
+
         this.loading = false;
         this.dialogRef.close(resp);
       });

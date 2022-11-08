@@ -54,7 +54,7 @@
   background-color: var(--footer-color);
 }
 
-body {
+html, body {
   background-color: var(--background-color) !important;
   height: 100% !important;
   width: 100% !important;
@@ -67,19 +67,6 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-:root {
-  height: 100% !important;
-  width: 100% !important;
-  max-height: 100% !important;
-
-  /*
-  --primary-color: white;
-  --secondary-color: #e41613;
-  --background-color: whitesmoke;
-  --text-color: black;
-  */
 }
 
 @font-face {

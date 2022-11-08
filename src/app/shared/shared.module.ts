@@ -8,6 +8,9 @@ import {VarDirective} from './utils/directives.directive';
 import {ImagePipe} from './utils/image.pipe';
 import {MultiAutoCompleterComponent} from './components/multi-auto-completer/multi-auto-completer.component';
 import {MaterialModule} from "../material/material.module";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {AuthHttpInterceptor} from "./utils/interceptor";
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import {MaterialModule} from "../material/material.module";
     ImagePipe,
     MultiAutoCompleterComponent,
     SingleAutoCompleterComponent
+  ],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true, deps: [AuthService]}
   ]
 })
 export class SharedModule {

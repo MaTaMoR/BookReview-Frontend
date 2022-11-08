@@ -1,0 +1,28 @@
+.profile-container {
+  width: 200px;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  border: 1px solid black;
+}
+
+.profile-actions {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.profile-entry {
+  cursor: pointer;
+  text-align: center;
+  /* color: var(--text-color); */
+  font-weight: bold;
+}
+
+.theme-container {
+  border: 1px solid black;
+  margin-top: 10px;
+}

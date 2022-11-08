@@ -47,4 +47,5 @@ export interface AuthUser {
   email: string;
   image: AuthUserImage;
   roles: AuthRole[];
+  password?: string;
 }

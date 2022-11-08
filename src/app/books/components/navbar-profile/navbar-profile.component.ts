@@ -5,13 +5,14 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {AuthUser} from "../../../shared/interfaces/interfaces";
 import {AuthComponent} from "../../auth/auth.component";
 import {ThemeService} from "../../../shared/services/theme.service";
+import {ProfileComponent} from "../profile/profile.component";
 
 @Component({
   selector: 'app-profile-navbar',
-  templateUrl: './profile-navbar.component.html',
-  styleUrls: ['./profile-navbar.component.css']
+  templateUrl: './navbar-profile.component.html',
+  styleUrls: ['./navbar-profile.component.css']
 })
-export class ProfileNavbarComponent {
+export class NavbarProfileComponent {
 
   constructor(private authService: AuthService, private dialog: MatDialog, private snackBar: MatSnackBar, private themeService: ThemeService) {
   }
@@ -29,7 +30,7 @@ export class ProfileNavbarComponent {
   }
 
   getProfile(): AuthUser {
-    return this.authService.getCurrentUser();
+    return this.authService.currentUser;
   }
 
   logout(): void {
@@ -47,6 +48,16 @@ export class ProfileNavbarComponent {
       height: 'auto',
       panelClass: 'trend-dialog',
       data: {tab: tab}
+    });
+  }
+
+  openProfile(): void {
+    this.dialog.closeAll()
+    this.dialog.open(ProfileComponent, {
+      autoFocus: true,
+      height: 'auto',
+      width: 'auto',
+      panelClass: 'trend-dialog'
     });
   }
 }

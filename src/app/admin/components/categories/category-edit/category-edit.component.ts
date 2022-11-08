@@ -46,14 +46,18 @@ export class CategoryEditComponent {
         if (response) {
           this.dialogRef.close(true);
         } else {
-          Swal.fire('Error', '¡No puedes borrar una categoría con un libro asociado!', 'error');
+          Swal.fire('¡No puedes borrar una categoría con un libro asociado!', '', 'error');
         }
       })
     }
   }
 
   send(): void {
-    if (this.isValid() && !this.loading) {
+    if (!this.isValid()) {
+      Swal.fire('¡La información contiene errores!', '', 'error');
+    } else if (this.loading) {
+      Swal.fire('¡Espera a que acabe de cargar!', '', 'error');
+    } else {
       this.loading = true;
 
       const name: string = this.formHandler.getValue('name');
@@ -64,6 +68,12 @@ export class CategoryEditComponent {
       };
 
       this.adminService.updateOrCreateCategory(newCategory).subscribe((resp) => {
+        if (newCategory.id) {
+          Swal.fire('¡Categoría actualizada!', '', 'success');
+        } else {
+          Swal.fire('¡Categoría creada!', '', 'success');
+        }
+
         this.loading = false;
         this.dialogRef.close(resp);
       });

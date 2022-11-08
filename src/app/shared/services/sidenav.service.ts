@@ -12,15 +12,21 @@ export class SidenavService {
     this.sidenav = sidenav;
   }
 
-  public open() {
-    return this.sidenav.open();
+  public open(): void {
+    if (this.sidenav) {
+      this.sidenav.open();
+    }
   }
 
-  public close() {
-    return this.sidenav.close();
+  public close(): void {
+    if (this.sidenav) {
+      this.sidenav.close();
+    }
   }
 
   public toggle(): void {
-    this.sidenav.toggle();
+    if (this.sidenav) {
+      this.sidenav.toggle();
+    }
   }
 }

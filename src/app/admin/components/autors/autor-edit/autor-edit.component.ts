@@ -47,14 +47,18 @@ export class AutorEditComponent {
         if (response) {
           this.dialogRef.close(true);
         } else {
-          Swal.fire('Error', '¡No puedes borrar un autor con un libro asociado!', 'error');
+          Swal.fire('¡No puedes borrar un autor con un libro asociado!', '', 'error');
         }
       })
     }
   }
 
   send(): void {
-    if (this.isValid() && !this.loading) {
+    if (!this.isValid()) {
+      Swal.fire('¡La información contiene errores!', '', 'error');
+    } else if (this.loading) {
+      Swal.fire('¡Espera a que acabe de cargar!', '', 'error');
+    } else {
       this.loading = true;
 
       const name: string = this.formHandler.getValue('name');
@@ -67,6 +71,12 @@ export class AutorEditComponent {
       };
 
       this.adminService.updateOrCreateAutor(newAutor).subscribe((resp) => {
+        if (newAutor.id) {
+          Swal.fire('¡Autor actualizado!', '', 'success');
+        } else {
+          Swal.fire('¡Autor creado!', '', 'success');
+        }
+
         this.loading = false;
         this.dialogRef.close(resp);
       });

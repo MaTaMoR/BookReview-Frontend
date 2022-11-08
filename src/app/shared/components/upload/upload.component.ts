@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {HttpErrorResponse, HttpEventType} from "@angular/common/http";
 import {catchError, Observable, throwError} from "rxjs";
-import {ImageService} from "../../../shared/services/image.service";
+import {ImageService} from "../../services/image.service";
 import {MatDialogRef} from "@angular/material/dialog";
 
 export enum UploadStatus {

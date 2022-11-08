@@ -42,9 +42,9 @@ export class LoginComponent extends FormGroupHandler {
         if (code == 200) {
           this.dialog.closeAll();
         } else if (code == 400) {
-          Swal.fire('Error', '¡Usuario o contraseña incorrecta!', 'error');
+          Swal.fire('¡Usuario o contraseña incorrecta!', '', 'error');
         } else {
-          Swal.fire('Error', '¡Ha ocurrido un error al contactar con el servidor!', 'error');
+          Swal.fire('¡Ha ocurrido un error al contactar con el servidor!', '', 'error');
         }
       });
     }

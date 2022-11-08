@@ -11,7 +11,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {Autor, Book, BookType, Category, Editorial} from "../../../../shared/data/interfaces/interfaces";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {EditData} from "../../../interfaces/interfaces";
-import {UploadComponent} from "../../upload/upload.component";
+import {UploadComponent} from "../../../../shared/components/upload/upload.component";
 import {CategoryService} from "../../../../shared/data/services/category.service";
 import {AutorService} from "../../../../shared/data/services/autor.service";
 import {EditorialService} from "../../../../shared/data/services/editorial.service";
@@ -83,14 +83,18 @@ export class BookEditComponent {
         if (response) {
           this.dialogRef.close(true);
         } else {
-          Swal.fire('Error', '¡No puedes borrar un libro que tiene review!', 'error');
+          Swal.fire('¡No puedes borrar un libro que tiene review!', '', 'error');
         }
       })
     }
   }
 
   send(): void {
-    if (this.isValid() && !this.loading) {
+    if (!this.isValid()) {
+      Swal.fire('¡La información contiene errores!', '', 'error');
+    } else if (this.loading) {
+      Swal.fire('¡Espera a que acabe de cargar!', '', 'error');
+    } else {
       this.loading = true;
 
       const title = this.formHandler.getValue('title');
@@ -119,6 +123,12 @@ export class BookEditComponent {
       console.log(newBook);
 
       this.adminService.updateOrCreateBook(newBook).subscribe((resp) => {
+        if (newBook.id) {
+          Swal.fire('¡Libro actualizado!', '', 'success');
+        } else {
+          Swal.fire('¡Libro creado!', '', 'success');
+        }
+
         this.loading = false;
         this.dialogRef.close(resp);
       });

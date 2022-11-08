@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {AuthService} from 'src/app/shared/services/auth.service';
 import {MatDialog} from "@angular/material/dialog";
 import {SearchComponent} from "../search/search.component";
-import {SidenavService} from "../../shared/services/sidenav.service";
+import {SidenavService} from "../../../shared/services/sidenav.service";
 
 @Component({
   selector: 'app-navbar',

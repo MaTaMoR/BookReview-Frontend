@@ -4,7 +4,7 @@
     <button (click)="buscar()" class="mt-3" fxLayout="row" mat-button>Buscar</button>
     <div fxLayout="column" fxLayoutAlign="center center">
       <p class="text-toggle unselectable">Busqueda inclusiva</p>
-      <mat-slide-toggle [var]="inclusiveSearch"></mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="inclusiveSearch"></mat-slide-toggle>
     </div>
   </div>
 </div>

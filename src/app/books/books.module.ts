@@ -9,7 +9,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {SliderComponent} from './components/reviews/slider/slider.component';
 import {CarouselModule} from "ngx-owl-carousel-o";
 import {SwiperModule} from "swiper/angular";
-import {ReviewDetailComponent} from './pages/review-detail/review-detail.component';
+import {ReviewDetailComponent} from './components/review-detail/review-detail.component';
 import {BookDetailComponent} from './pages/book-detail/book-detail.component'
 import {NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
 import {BookEntryComponent} from "./components/books/book-entry/book-entry.component";
@@ -25,23 +25,24 @@ import {EditorialsComponent} from './pages/editorials/editorials.component';
 import {CategoriesComponent} from './pages/categories/categories.component';
 import {CategoryEntryComponent} from './components/categories/category-entry/category-entry.component';
 import {HomeComponent} from './pages/home/home.component';
-import {ProfileNavbarComponent} from "./components/profile-navbar/profile-navbar.component";
-import {SidenavNavbarComponent} from "./components/sidenav-navbar/sidenav-navbar.component";
 import {TitleComponent} from "./components/title/title.component";
-import {SearchComponent} from "./search/search.component";
-import {BookTabComponent} from "./search/tabs/book-tab/book-tab.component";
-import {ReviewTabComponent} from "./search/tabs/review-tab/review-tab.component";
-import {AutorTabComponent} from "./search/tabs/autor-tab/autor-tab.component";
-import {EditorialTabComponent} from "./search/tabs/editorial-tab/editorial-tab.component";
-import {SidenavComponent} from "./sidenav/sidenav.component";
-import {ProfileComponent} from "./components/profile/profile.component";
-import {NavbarComponent} from "./navbar/navbar.component";
+import {SearchComponent} from "./components/search/search.component";
+import {BookTabComponent} from "./components/search/tabs/book-tab/book-tab.component";
+import {ReviewTabComponent} from "./components/search/tabs/review-tab/review-tab.component";
+import {AutorTabComponent} from "./components/search/tabs/autor-tab/autor-tab.component";
+import {EditorialTabComponent} from "./components/search/tabs/editorial-tab/editorial-tab.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {AuthComponent} from "./auth/auth.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {RegisterComponent} from "./auth/register/register.component";
-import {ReactiveFormsModule} from "@angular/forms";
-import {CategoryTabComponent} from "./search/tabs/category-tab/category-tab.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CategoryTabComponent} from "./components/search/tabs/category-tab/category-tab.component";
+import {ProfileComponent} from './components/profile/profile.component';
+import {NavbarProfileComponent} from "./components/navbar-profile/navbar-profile.component";
+import {SidenavNavbarComponent} from "./components/sidenav-navbar/sidenav-navbar.component";
+import {SidenavProfileComponent} from "./components/sidenav-profile/sidenav-profile.component";
+import {SidenavComponent} from "./components/sidenav/sidenav.component";
+import {NavbarComponent} from "./components/navbar/navbar.component";
 
 @NgModule({
   declarations: [
@@ -61,7 +62,7 @@ import {CategoryTabComponent} from "./search/tabs/category-tab/category-tab.comp
     CategoryEntryComponent,
     HomeComponent,
     BannerComponent,
-    ProfileNavbarComponent,
+    NavbarProfileComponent,
     SidenavNavbarComponent,
     TitleComponent,
     SearchComponent,
@@ -70,31 +71,30 @@ import {CategoryTabComponent} from "./search/tabs/category-tab/category-tab.comp
     AutorTabComponent,
     EditorialTabComponent,
     SidenavComponent,
-    ProfileComponent,
+    SidenavProfileComponent,
     NavbarComponent,
     FooterComponent,
     AuthComponent,
     LoginComponent,
     RegisterComponent,
-    CategoryTabComponent
+    CategoryTabComponent,
+    ProfileComponent
   ],
-  exports: [
-    BannerComponent,
-    SidenavComponent,
-    AutorEntryComponent
-  ],
-  imports: [
-    CommonModule,
-    BooksRoutingModule,
-    SharedModule,
-    MaterialModule,
-    FlexLayoutModule,
-    CarouselModule,
-    SwiperModule,
-    NgbRatingModule,
-    ReactiveFormsModule
-  ],
-  providers: [{provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl}]
+    imports: [
+        CommonModule,
+        BooksRoutingModule,
+        SharedModule,
+        MaterialModule,
+        FlexLayoutModule,
+        CarouselModule,
+        SwiperModule,
+        NgbRatingModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
+  providers: [
+    {provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl}
+  ]
 })
 export class BooksModule {
 }

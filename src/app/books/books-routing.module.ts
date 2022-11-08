@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './pages/main/main.component';
 import {BookDetailComponent} from "./pages/book-detail/book-detail.component";
-import {ReviewDetailComponent} from "./pages/review-detail/review-detail.component";
+import {ReviewDetailComponent} from "./components/review-detail/review-detail.component";
 import {BooksComponent} from "./pages/books/books.component";
 import {ReviewsComponent} from "./pages/reviews/reviews.component";
 import {AutorsComponent} from "./pages/autors/autors.component";

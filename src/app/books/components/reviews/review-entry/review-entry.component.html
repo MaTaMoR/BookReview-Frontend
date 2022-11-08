@@ -1,6 +1,6 @@
 <ng-template [ngIf]="review">
   <mat-card (click)="onClick()" class="my-1 unselectable background-secondary">
-    <div fxFlexFill fxLayout="column" fxLayoutAlign="center start">
+    <div fxLayout="column" fxLayoutAlign="center start">
       <mat-card-header>
         <mat-card-title class="title-clamp">{{ review.book.title }}</mat-card-title>
         <mat-card-subtitle>{{ review.book.autor.name + ' ' + review.book.autor.surnames }}</mat-card-subtitle>
@@ -9,7 +9,7 @@
       <mat-card-content>
         <p class="line-clamp">{{ review.review }}</p>
       </mat-card-content>
-      <mat-card-actions fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+      <mat-card-actions fxLayout="column" fxLayoutAlign="center center">
         <button mat-button>LEER MÁS</button>
       </mat-card-actions>
     </div>

@@ -10,7 +10,7 @@ import {SharedModule} from "../shared/shared.module";
 import {BookEntryComponent} from "./components/books/book-entry/book-entry.component";
 import {BookEditComponent} from './components/books/book-edit/book-edit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {UploadComponent} from './components/upload/upload.component';
+import {UploadComponent} from '../shared/components/upload/upload.component';
 import {ReviewsComponent} from './pages/reviews/reviews.component';
 import {ReviewEditComponent} from "./components/reviews/review-edit/review-edit.component";
 import {ReviewEntryComponent} from "./components/reviews/review-entry/review-entry.component";

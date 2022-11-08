@@ -1,12 +1,12 @@
 import {Component, ViewChild} from '@angular/core';
-import {MultiAutoCompleter} from "../../../../shared/utils/utils";
-import {BookRequest, Category, CategoryRequest, FilterCriteria} from "../../../../shared/data/interfaces/interfaces";
+import {MultiAutoCompleter} from "../../../../../shared/utils/utils";
+import {BookRequest, Category, CategoryRequest, FilterCriteria} from "../../../../../shared/data/interfaces/interfaces";
 import {Router} from "@angular/router";
 import {map} from "rxjs";
-import {CategoryService} from "../../../../shared/data/services/category.service";
+import {CategoryService} from "../../../../../shared/data/services/category.service";
 import {
   MultiAutoCompleterComponent
-} from "../../../../shared/components/multi-auto-completer/multi-auto-completer.component";
+} from "../../../../../shared/components/multi-auto-completer/multi-auto-completer.component";
 
 @Component({
   selector: 'app-category-tab',

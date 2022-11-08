@@ -5,7 +5,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {EditData} from "../../../interfaces/interfaces";
 import {BooksService} from "../../../../shared/data/services/books.service";
-import {UploadComponent} from "../../upload/upload.component";
+import {UploadComponent} from "../../../../shared/components/upload/upload.component";
 import {ReviewsService} from "../../../../shared/data/services/reviews.service";
 import {AdminService} from "../../../services/admin.service";
 import Swal from "sweetalert2";
@@ -65,14 +65,18 @@ export class ReviewEditComponent {
         if (response) {
           this.dialogRef.close(true);
         } else {
-          Swal.fire('Error', '¡No se ha podido borrar la review!', 'error');
+          Swal.fire('¡No se ha podido borrar la review!', '', 'error');
         }
       })
     }
   }
 
   send(): void {
-    if (this.isValid() && !this.loading) {
+    if (!this.isValid()) {
+      Swal.fire('¡La información contiene errores!', '', 'error');
+    } else if (this.loading) {
+      Swal.fire('¡Espera a que acabe de cargar!', '', 'error');
+    } else {
       this.loading = true;
 
       const book: Book = <Book> this.bookCompleter.selectedValue;
@@ -83,7 +87,7 @@ export class ReviewEditComponent {
       const newReview: Review = {
         id: this.review?.id,
         image: this.review?.image,
-        autor: this.review?.autor || this.authService.getCurrentUser(),
+        autor: this.review?.autor || this.authService.currentUser,
         likes: this.review?.likes || [],
         book,
         review,
@@ -92,6 +96,12 @@ export class ReviewEditComponent {
       };
 
       this.adminService.updateOrCreateReview(newReview).subscribe((resp) => {
+        if (newReview.id) {
+          Swal.fire('¡Review actualizada!', '', 'success');
+        } else {
+          Swal.fire('¡Review creada!', '', 'success');
+        }
+
         this.loading = false;
         this.dialogRef.close(resp);
       });

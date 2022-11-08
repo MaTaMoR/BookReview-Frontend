@@ -1,12 +1,12 @@
 import {Component, ViewChild} from '@angular/core';
-import {BooksService} from "../../../../shared/data/services/books.service";
+import {BooksService} from "../../../../../shared/data/services/books.service";
 import {map} from "rxjs";
-import {Book} from "../../../../shared/data/interfaces/interfaces";
-import {SingleAutoCompleter} from "../../../../shared/utils/utils";
+import {Book} from "../../../../../shared/data/interfaces/interfaces";
+import {SingleAutoCompleter} from "../../../../../shared/utils/utils";
 import {Router} from "@angular/router";
 import {
   SingleAutoCompleterComponent
-} from "../../../../shared/components/single-auto-completer/single-auto-completer.component";
+} from "../../../../../shared/components/single-auto-completer/single-auto-completer.component";
 
 @Component({
   selector: 'app-book-tab',

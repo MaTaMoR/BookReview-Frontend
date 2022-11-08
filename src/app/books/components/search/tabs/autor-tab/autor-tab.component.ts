@@ -1,12 +1,12 @@
 import {Component, ViewChild} from '@angular/core';
-import {SingleAutoCompleter} from "../../../../shared/utils/utils";
-import {Autor, BookRequest} from "../../../../shared/data/interfaces/interfaces";
+import {SingleAutoCompleter} from "../../../../../shared/utils/utils";
+import {Autor, BookRequest} from "../../../../../shared/data/interfaces/interfaces";
 import {
   SingleAutoCompleterComponent
-} from "../../../../shared/components/single-auto-completer/single-auto-completer.component";
+} from "../../../../../shared/components/single-auto-completer/single-auto-completer.component";
 import {Router} from "@angular/router";
 import {map} from "rxjs";
-import {AutorService} from "../../../../shared/data/services/autor.service";
+import {AutorService} from "../../../../../shared/data/services/autor.service";
 
 @Component({
   selector: 'app-autor-tab',

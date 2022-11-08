@@ -4,7 +4,7 @@
     <p class="profile-username">{{ getProfile().username }}</p>
   </ng-template>
   <div class="h-100" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
-    <div fxLayout="column" fxLayoutAlign="center center">
+    <div class="image-container" fxLayout="column" fxLayoutAlign="center center">
       <img [src]="(isLogged() && getProfile().image) ? (getProfile().image.id | image) : 'assets/unknown_user.jpg'"
            alt="profile"
            class="profile-image">
@@ -14,7 +14,7 @@
 <mat-menu #profileMenu="matMenu" class="border-dark border border-1 mt-1" xPosition="before">
   <div class="p-3 menu-container" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
     <ng-template [ngIf]="isLogged()">
-      <button class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
+      <button (click)="openProfile()" class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
         <mat-icon class="menu-icon">account_circle</mat-icon>
         Mi perfil
       </button>
@@ -27,8 +27,7 @@
       <button (click)="openAuth('login')" class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
         Iniciar sesión
       </button>
-      <button (click)="openAuth('register')" class="menu-item" fxLayout="row" fxLayoutAlign="start center"
-              mat-menu-item>
+      <button (click)="openAuth('register')" class="menu-item" fxLayout="row" fxLayoutAlign="start center" mat-menu-item>
         Registrase
       </button>
     </ng-template>
